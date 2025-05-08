@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Windows XP</title>
+    <style>
+
+        /* A war was fought here */
+        @font-face {font-family: "Tahoma-10" ; src: url("fonts/tahoma-crunchy-10.ttf") format('opentype'); }
+        @font-face {font-family: "Trebuchet" ; src: url("fonts/trebucet10.ttf")     format("opentype"); }
+        @font-face {font-family: "Tahoe"     ; src: url("fonts/tahoebyhand.ttf")       format('opentype'); }
+        @font-face {font-family: "TahomaBM"     ; src: url("fonts/TahomaBM.ttf")       format('opentype'); }
+        
+        * { /* Catch-all for most text */
+            font-family: TahomaBM;  font-size: 16px;
+            /* Try not to let the user select text most of the time */
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; 
+        }
+
+        img { /* Ensure all images are not interpolated */
+            position: relative;
+            top: 2px;
+            image-rendering: pixelated;
+        }
+
+        .shadow { /* Add a drop shadow to certain elements */
+            filter: drop-shadow(1px 1px 1px black);
+        }
+
+        .trebuchet { /* Just set the class to trebuchet for the few elements that use it */
+            font-family: Trebuchet;
+        }
+    
+        /* Header bar container */
+        #Ribbon { position: absolute; width: 100%; left: 0; top: 0; }
+
+        #DECORATION { 
+            z-index: 1;
+            line-height: 29px;
+            font-size: 14px;
+            color: white;
+            position: absolute;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAAJcEhZcwAADrwAAA68AZW8ckkAAABhSURBVAjXNcqxDQIxFATR/bM+k1wFlAKV0DkJEgFcRIROIIy/TABEoyeNOFzY7bfcUhxPQX0utHWm5ErvbyQRUbCDzPGzkcTg34LCyBV5+j6ToQzSDXlDPERtndf1TOj+AXlzHUxFxv9TAAAAAElFTkSuQmCC");
+            background-color: #0071ed;
+            width: 100%;
+            height: 26px;
+            top: 0;
+            text-indent: 2px;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        #WM { /* Window controls (Minimize, Maximize, Close) */
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 79px;
+            
+        }
+
+        #WM img { /* Fucky */
+            left: 10px;
+            margin-left: -3px;
+        }
+
+        #MENU { /* Topmost menubar container */
+            z-index: 1;
+            position: absolute;
+            background-color: #f5f7f9;
+            width: 100%;
+            height: 22px;
+            top: 26px;
+            border-bottom: 1px solid #d8d2bd;
+        }
+
+        /* Menubar container */
+        .MENU_BUTTONS {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            line-height: 20px;
+            top: 1px;
+            margin-left: 1px;
+            
+        }
+
+        /* Menubar item styling */
+        .MENU_BUTTONS > div {
+            display: inline-block;
+            align-content: center;
+            font-size: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-left: 1px;
+            margin-right:1px;
+        }
+        
+        /* Change color of Menubar item when hovering over it */
+        .MENU_BUTTONS div:hover { background-color: #215dc6; color: white;}
+
+        /* Change color of Sub-Menu item when hovering over it */
+        #Submenu div:hover { background-color: #215dc6; color: white;}        
+
+        /* Show the correct Sub-Menu when hovering over a Menubar item */
+        #M1:hover .SubM1  { display:inline list-item; list-style-type: none; }
+        #M2:hover .SubM2  { display:inline list-item; list-style-type: none; }
+        #M3:hover .SubM3  { display:inline list-item; list-style-type: none; }
+        #M4:hover .SubM4  { display:inline list-item; list-style-type: none; }
+        #M5:hover .SubM5  { display:inline list-item; list-style-type: none; }
+        #M6:hover .SubM6  { display:inline list-item; list-style-type: none; }        
+        
+        /* General style for the Sub-Menu */
+        #Submenu {
+            position: absolute;
+            display: none;
+            background-color: white;
+            color: darkgray;
+            z-index: 1000;
+            margin-top: 20px;
+            margin-left: -31px;
+            width: 190px;
+            text-indent: 25px;
+            filter: drop-shadow(2px 2px 5px black);
+            padding: 1px;
+        }
+
+        /* Use links to designate if an item is a valid choice */
+        #Submenu a {
+            text-decoration:-moz-none;
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Sub-Menu Seperators */
+        #Submenu #SubM_Seperator { height: 1px; background-color: #aca899; }
+
+        /* Add the little arrow to parent Sub-Menu items */
+        #Submenu .Parent {
+            color: black;
+            background-image: url("assets/parentMenu.png");
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+
+        /* Show child items when hovering over a parent */
+        #Submenu .Parent:hover .Child {
+                background-color: white;
+                color: black;
+                display: list-item; 
+                list-style-type: none;
+                margin-top: -20px;
+                left: 222px;
+        }
+
+        /* Change color of child item when hovering over it */
+        .Submenu .Parent div:hover { background-color: #215dc6; color: white;}
+        
+        /* Little windows flag in the corner */
+        #WINLOGO { 
+            position: absolute;
+            background-color: white;
+            border: 1px solid beige;
+            right: 0px;
+            top: 0px;
+            height: 20px;
+            width: 40px;
+        }
+
+        #WINLOGO img {
+            position: absolute;
+            left: 12px;
+            height: 18px;
+        }
+
+        #NAV { /* Navbar container (Back, Forward, Up, Etc...) */
+            z-index: -1001;
+            
+            position: absolute;
+            background-color: #f5f7f9;
+            width: 100%;
+            height: 38px;
+            top: 49px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid #d8d2bd;
+        }
+
+        /* Navbar text items */
+        #BACK,#SEARCH,#FOLDERS { position: absolute; line-height: 37px; font-size: 14px; }
+        #BACK    { left: 37px;  }
+        #SEARCH  { left: 199px; }
+        #FOLDERS { left: 271px; }
+
+        /* Navbar Buttons */
+        #BACK_BUTTON, #FORWARD_BUTTON, #UP_BUTTON, #SEARCH_BUTTON, #FOLDERS_BUTTON, #VIEWS_BUTTON, #DT1, #DT2{
+            position: absolute;
+            overflow: visible;
+            width: 23px;
+            height: 23px;
+            top: 8px;
+        }
+
+        #BACK_BUTTON    { left: 10px;  }
+        #DT1 { height:40px; width:5px; left: 70px; top:0px; }
+        #FORWARD_BUTTON { left: 88px; filter: grayscale(100%);  }
+        #DT2 { height:40px; width:5px; left: 120px; top:0px; }
+        #UP_BUTTON      { left: 138px; }
+        #SEARCH_BUTTON  { left: 171px; }
+        #FOLDERS_BUTTON { left: 244px; }
+        #VIEW_BUTTON    { left: 324px; top:-10px; }
+        #DT3 { height:40px; width:5px; left: 325px; top:0px; }
+        
+        /* Seperators */
+        #SEP1 { left: 164px; }
+        #SEP2 { left: 316px; }
+
+        #SEP1, #SEP2 {
+            position: absolute;
+            background-color: #cac6af;
+            top: 2px;
+            width: 1px;
+            height: 35px;
+            color: #cac6af;
+        }
+
+        #ADDR {
+            z-index: -1001;
+            color: #9c9891;
+            position: absolute;
+            background-color: #f5f7f9;
+            width: 100%;
+            height: 21px;
+            top: 89px;   
+            word-spacing: 0px;
+            font-size: 14px;
+            text-indent: 4.9px;
+            line-height: 18px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid #d8d2bd;
+        }
+
+        #GO {
+            font-size: 14px;
+            
+            color: #9c9891;
+            position: absolute;
+            top: -2px;
+            color: black;
+            align-content: center;
+            right: 25px;
+            height: 23px;
+            img {
+                position: absolute;
+                top: 4px;
+                left: -15px;
+            }
+        }
+
+        #TEXTBOX {
+            position: absolute;
+            color: black;
+            font-size: 20px;
+            line-height: 19px;
+            background-color: #fff;
+            width: calc(100% - 114px);
+            top: 1px;
+            left: 49px;
+            height: 20px;
+            outline: 1px solid #7f9db9;
+            -webkit-user-select:text;  
+            -moz-user-select:text;
+            -ms-user-select:text;
+            user-select:text;
+        }
+
+        #ADDR_DROP {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background-color: #e1eafe;
+            outline: 1px solid #bfd0f8;
+            width: 15px;
+            height: 16px;
+            border-radius: 1px;
+        }
+
+
+
+        #Content {
+            z-index: 0;
+            font-family: Tahoe;
+            position: absolute;
+            background-color: #f2f4fc;
+
+            width: calc(100% - 210px);
+            height: calc(100% - 112px);
+            bottom: 0;
+            right: 0;
+        }
+
+        #PIC {
+            z-index: 0;
+            font-size: 82px;
+            position: absolute;
+
+            background-color: #f3f6ff;
+            background-image: url(./pictures/bliss.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat:no-repeat;
+
+            height: calc(100% - 205px);
+            width: calc(100% - 355px);
+            left: 50%;
+            transform: translate(-50%);
+            border: 1px solid black;
+            align-content: center;
+            text-indent: 15px;
+            overflow: hidden;
+            top: 5px;
+        }
+
+        #WIDGET {
+            position: absolute;
+            bottom: 170px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        #REEL {
+            z-index: -1;
+            position: absolute;
+            height: 160px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            display: flex;
+            flex-direction: row;
+            align-items: top;
+            gap: 26px;
+
+            padding: 12px;
+            background-color: #fff;
+
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+
+            background-image: url('assets/polaroidWatermark.png');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+        }
+
+        .thumbnail {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            width: 100px;
+            height: 100px;
+            position: relative;
+            padding: 4px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            
+        }
+
+        .thumbnail img {
+            border: 1px solid #ece9d8;
+            height: 100px;
+            width: 100px;
+            object-fit: contain;
+        }
+
+        .thumbnail p {
+            /*#316ac5;*/
+            color: black;
+            background-color: transparent;
+            height: 15px;
+            line-height: 14px;
+            font-size: 12px;
+            width: 50%;
+            text-align: center;
+            margin: 0;
+            position: absolute;
+            bottom: -19px;
+            left: 50;
+        }
+
+        .thumbnail.selected {
+            img {
+                outline: 3px solid #316ac5;
+                outline-offset: -3px;
+            }
+            
+            p {
+                color: white;
+                background-color: #316ac5;
+            }
+            
+        }
+
+        #LeftPane {
+            
+            position: absolute;
+            background: linear-gradient(to bottom, #8cb3ec, #778ddf);
+            height: calc(100% - 112px);
+            width: 238px;
+            left: 0;
+            bottom: 0;
+            overflow-x: scroll;
+            overflow-y: none;
+            scrollbar-width: thin;
+        }
+
+        #PictureTasks, #FileTasks, #OtherPlaces, #Details {
+            position: absolute;
+            width: 185px;
+            height: 25px;  
+            left: 12px;
+            
+            background-image: url("assets/taskgradient.png");
+            background-repeat: repeat-y;
+            background-position-y: 0x;
+            background-position-x: 0px;
+            background-size: 185px;
+            
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            
+            color: #0066cc;
+            font-size: 13px;
+            line-height: 31px;
+            text-indent: 13px;
+        }
+
+        #PictureTasks {
+            position: relative;
+            top: 19px;
+            line-height: 28px;
+            letter-spacing: .6px;
+            color: white;
+            text-indent: 33px;
+            background-image: url("assets/ptaskgradient.png");
+            background-repeat: repeat-y;
+            background-position-y: 0x;
+            background-position-x: 0px;
+            background-size: 185px;
+
+            /* handle the little polaroid in the corner of the titlebar */
+            .polaroid { left: -1px; top:-7px; height: 32px; object-fit: cover; position: absolute; }
+        }
+
+        #PTWin,#FTWin,#OPWin,#DWin {
+            position: absolute;
+            top: 25px;
+            width: 183px;
+
+            background-color: #d6dff7;
+            border: 1px solid white;
+            border-top: 0px;
+            
+            color: #215dc6;
+            
+            text-rendering: optimizeLegibility;
+        }
+
+        #PTWin { /* Photo Tasks needs special treatment because it's a little bitch */
+            height: 165px;
+            border: 1px solid white;
+
+            background-color: #f2f5ff;
+            background-image: url('assets/polaroidWatermark.png');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            background-size: 60px;
+            background-blend-mode: multiply;
+        }
+
+        /* For now we're manually defining how big the task windows are...      */
+        /* Eventually this will need to be dynamic to allow for menu collapsing */
+        #FileTasks   { top: 226px; }
+        #FTWin    { height: 137px; }
+        #OtherPlaces { top: 403px; }
+        #OPWin    {  height: 97px; }
+        #Details     { top: 540px; }
+        #Dwin     { height: 167px; }
+
+        #PaneText {
+            position: relative;
+            line-height: 11.1px;
+            
+            word-spacing: -3.2px;
+            width: 141px;
+            left: 27px;
+            top: -3px;
+            
+        }
+
+        #PaneText a {
+            color: #215dc6;
+            font-family: Tahoe;
+            font-size: 14px;
+            letter-spacing: .77px;
+            text-decoration:-moz-none;
+            text-decoration: none;
+        }
+
+        #PaneText span {
+            position: absolute;
+            top: 19px;
+            left: -25px;
+        }
+
+        #PaneText a:hover {
+            text-decoration: underline;
+        }
+
+        #PaneText img {
+            left: -11px;
+            height: 8px;
+            top: 1px;
+            scale: 2;
+            overflow: visible;
+        }
+
+        /* Phones n junk */
+        @media only screen and (orientation:portrait) {
+
+            #PIC            { height    : 75%      ; width    : 100%   ; border    : none       ;               }
+            .thumbnail      { height    : 80%      ; width    : 33%    ; bottom    : -17%       ;               }
+            #Content        { width     : 100%     ; overflow : hidden ;                                        }
+            .thumbnail img  { height    : 100%     ; width    : 100%   ;                                        }
+            #WIDGET         { bottom   : 30%    ;                                        }
+            #REEL           { height    : 25%      ;                                                            }
+            #LeftPane       { display   : none     ;                                                            }
+
+            .thumbnail p    {
+                position: absolute;
+                top: -27px;
+                transform: scale(.85);
+                height: 29px;
+                width: 100%;
+                font-size: 33px;
+                line-height: 26px;
+                left: 0px;
+            }
+        }
+    
+    
+    </style>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        
+        <!-- Titlebar -->
+        <div id="Ribbon">RIBBON
+            <div id="DECORATION" class="trebuchet"> <img class="shadow" src="assets/folder16.ico" width="16" height="16"> My Pictures 
+            <div id="WM">
+                <img src="assets/minimizeButton.png">
+                <img src="assets/maximizeButton.png">
+                <img src="assets/closeButton.png">
+            </div></div> 
+
+            <!-- All of the menubar items -->
+            <div id="MENU"> 
+                <div class="MENU_BUTTONS">
+                    <div id="M1">File
+                        <div id="Submenu" class="SubM1">
+                            <div id="SubM1_1">New</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM1_2">Create Shortcut</div>
+                            <div id="SubM1_3">Delete</div>
+                            <div id="SubM1_4">Rename</div>
+                            <div id="SubM1_5">Properties</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM1_6">Close</div>
+                        </div>
+                    </div>
+
+                    <div id="M2">Edit
+                        <div id="Submenu" class="SubM2">
+                            <div id="SubM2_1">Undo Delete</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM2_2">Cut</div>
+                            <div id="SubM2_3">Copy</div>
+                            <div id="SubM2_4">Paste</div>
+                            <div id="SubM2_5">Paste Shortcut</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM2_6">Copy to Folder...</div>
+                            <div id="SubM2_7">Move to Folder...</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM2_8">Select All</div>
+                            <div id="SubM2_9">Invert Selection</div>
+                        </div>
+                    </div>
+                    <div id="M3">View
+                        <div id="Submenu" class="SubM3">
+                            <div id="SubM3_1">Toolbars</div>
+                            <div id="SubM3_2">Status Bar</div>
+                            <div id="SubM3_3">Explorer Bar</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM3_4">Filmstrip</div>
+                            <div id="SubM3_5">Thumbnails</div>
+                            <div id="SubM3_6">Tiles</div>
+                            <div id="SubM3_7">Icons</div>
+                            <div id="SubM3_8">List</div>
+                            <div id="SubM3_9">Details</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM3_10" class="Parent">Arrange Icons by
+                                <div id="Submenu" class="Child">
+                                    <div id="SubM3SubM1_1">Name</div>
+                                    <div id="SubM3SubM1_2">Size</div>
+                                    <div id="SubM3SubM1_3">Type</div>
+                                    <div id="SubM3SubM1_4">Modified</div>
+                                    <div id="SubM3SubM1_6">Picture Taken On</div>
+                                    <div id="SubM3SubM1_7">Dimensions</div>
+                                    <div id="SubM_Seperator"></div>
+                                    <div id="SubM3SubM1_8">Show in Groups</div>
+                                    <div id="SubM3SubM1_9">Auto Arrange</div>
+                                    <div id="SubM3SubM1_10">Align to Grid</div>
+                                </div>
+                            </div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM3_11">Choose Details...</div>
+                            <div id="SubM3_12">Customize This Folder...</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM3_13">Go To</div>
+                            <div id="SubM3_14">Refresh</div>
+                        </div>
+                    </div>
+                    <div id="M4">Favorites
+                        <div id="Submenu" class="SubM4">
+                            <div id="SubM4_1">Add to Favorites...</div>
+                            <div id="SubM4_1">Orginize Favorites...</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM4_1" class="Parent">Friends Websites
+                                <div id="Submenu" class="Child">
+                                    <div id="SubM4SubM1_1"><a href="https://slitherpunk.itch.io/">Autumn Rain</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://deerz.one/">IDA DEERZ</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://toastietv.straw.page/">ToastieTV</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://poss.gay/">DIDELPHIDRAGON</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://wunkolo.github.io/">Wunk</a></div>
+                                </div>
+                            </div>
+                            <div id="SubM4_1" class="Parent">Daisies Websites
+                                <div id="Submenu" class="Child">
+                                    <div id="SubM4SubM1_1"><a href="https://daisy.universe.dog/">Main Website</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://tech.universe.dog/">Tech Blog</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://desna.universe.dog/">Desna Prime</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://blog.universe.dog/">Personal Blog</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://chat.universe.dog/">Nebula IRC Chat</a></div> 
+                                    <div id="SubM4SubM1_1"><a href="https://bsky.app/profile/daisy.universe.dog">Bluesky</a></div>
+                                    <div id="SubM4SubM1_1"><a href="https://github.com/daisyUniverse">Github</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="M5">Tools
+                        <div id="Submenu" class="SubM5">
+                            <div id="SubM5_1">Map Network Drive...</div>
+                            <div id="SubM5_1">Disconnect Network Drive...</div>
+                            <div id="SubM5_1">Synchronize...</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM5_1">Folder Options...</div>
+                        </div>
+                    </div>
+                    <div id="M6">Help
+                        <div id="Submenu" class="SubM6">
+                            <div id="SubM6_1">Help and Support Center</div>
+                            <div id="SubM_Seperator"></div>
+                            <div id="SubM6_2"><a href="https://youtu.be/LZgeIReY04c">Is this copy of Windows legal?</a></div>
+                            <div id="SubM6_3"><a href="https://github.com/daisyUniverse/picpile">About PicPile</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="WINLOGO">
+                    <img src="assets/winLogo.png">
+                </div> </div>
+
+            <!-- Navbar stuff (back, forward, etc) -->
+            <div id="NAV">
+                <img id="BACK_BUTTON" src="assets/backButton.png" > 
+                <div id="BACK">Back</div>
+                <img id="DT1" src="assets/downtick.png" > 
+                <img id="FORWARD_BUTTON" src="assets/fwdButton.png" > 
+                <img id="DT2" src="assets/downtick.png" > 
+                <img id="UP_BUTTON" src="assets/up.png" > 
+                <div id="SEP1"></div>
+                <img id="SEARCH_BUTTON" src="assets/searchButton.png" > 
+                <div id="SEARCH">Search</div>
+                <img id="FOLDERS_BUTTON" src="assets/folderButton.png" > 
+                <div id="FOLDERS">Folders</div>
+                <div id="SEP2"></div>
+                <img id="VIEW_BUTTON" src="assets/view.png" > 
+                <img id="DT3" src="assets/downtick.png" > 
+            </div>
+            <!---------------------------------------->
+
+            <!-- Address bar -->
+            <div id="ADDR">     Address <div id="TEXTBOX"> <img class="shadow" src="assets/folder16.ico" width="16" height="16"> \\daisy.universe.dog\XP\ <div id="ADDR_DROP"></div></div> <div id="GO"><img src="assets/go.ico">Go</div> </div>
+        </div>
+        
+        
+        <!-- Action Pane ( IE "Email this file", "Delete this file", Etc., ) -->
+        <div id="LeftPane">
+            <div id="PictureTasks" class="trebuchet">
+                <img class="polaroid" src="assets/polaroid16.png" width="32" height="32"> Picture Tasks
+                <div id="PTWin">
+                    <div id="PaneText">
+                        <br>
+                        <a href="https://daisy.universe.dog"><img src="assets/camera.ico">Get pictures from camera <span>or scanner</span><br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/project16.ico">View as a slide show<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/webphoto16.ico">Order prints online<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/print16.ico">Print this picture<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/wallpaper16.ico">Set as desktop background<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/copycd16.ico">Copy to CD<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/webphoto16.ico">Shop for pictures online<br><br></a>
+                    </div>
+                </div>
+            </div>
+            <div id="FileTasks" class="trebuchet">
+                File and Folder Tasks
+                <div id="FTWin">
+                    <div id="PaneText" class="tahoma-10">
+                        <br>
+                        <a href="https://daisy.universe.dog"><img src="assets/rename.ico">Rename this file<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/move16.ico">Move this file<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/copy.ico">Copy this file<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/publish16.ico">Publish this file to the Web<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/delete16.ico">E-mail this file<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/delete16.ico">Delete this file<br><br></a>
+                    </div>
+                </div>
+            </div>
+            <div id="OtherPlaces" class="trebuchet">
+                Other Places
+                <div id="OPWin">
+                    <div id="PaneText">
+                        <br>
+                        <a href="https://daisy.universe.dog"><img src="assets/picfolder16.ico">Shared Pictures<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/picfolder16.ico">My Pictures<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/folder16.ico">My Computer<br><br></a>
+                        <a href="https://daisy.universe.dog"><img src="assets/folder16.ico">My Network Places<br><br></a>
+                    </div>
+                </div>
+            </div>
+            <div id="Details" class="trebuchet">
+                Details
+                <div id="Dwin"
+                ></div>
+            </div>
+        </div>
+        <!--------------------------------------------------------------------------------------->
+        
+        <!-- Main content window -->
+        <div id="Content">
+
+            <!-- Big pic preview -->
+            <div id="PIC"></div>
+
+            <!-- The widget (Previous photo, next photo, rotate) controls -->
+            <div id="WIDGET">
+                <img src="assets/prevPhoto.png">
+                <img src="assets/nextPhoto.png">
+                <img src="assets/seperator.png">
+                <img src="assets/rotateLeft.png">
+                <img src="assets/rotateRight.png">
+            </div>
+
+            <!-- Thumbnail reel (images placed here will be shown as thumbnails) -->
+            <div id="REEL">
+                {% for e in entries %}
+                  {% if e.is_dir %}
+                    <!-- wrap the folder thumbnail in an <a> so navigation is native -->
+                    <a href="{{ url_for('index', subpath=e.path) }}"
+                       class="thumbnail folder">
+                      <!-- absolute URL for the icon so it never resolves to /pictures/... -->
+                      <img src="{{ url_for('assets', filename='FolderThumbnail.png') }}"
+                           width="100" height="100" alt="folder">
+                      <p>{{ e.name }}</p>
+                    </a>
+                  {% else %}
+                    <div class="thumbnail">
+                      <img src="{{ url_for('pictures', filename=e.path) }}"
+                           width="100" height="100" alt="{{ e.name }}">
+                      <p>{{ e.label }}</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------->
+
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=> {
+          let lastSelected = null;
+          const preview = document.getElementById("PIC");
+        
+          // only bind preview to non‑folder thumbnails
+          document.querySelectorAll(".thumbnail:not(.folder)").forEach(thumb => {
+            thumb.addEventListener("click", () => {
+              if (lastSelected) lastSelected.classList.remove("selected");
+              thumb.classList.add("selected");
+              const img = thumb.querySelector("img");
+              preview.style.backgroundImage = `url('${img.src}')`;
+              lastSelected = thumb;
+            });
+          });
+        });
+    </script>
+  </body>
+</html>
