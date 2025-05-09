@@ -3,6 +3,8 @@
 /* Daisy Universe [D]   */
 /* 05 . 09 . 25         */
 
+/* This is the general styling for the rest of the site, stuff you want to apply to everything goes in here */
+
 /* A war was fought here */
 @font-face {font-family: "Tahoma-10" ; src: url("../fonts/tahoma-crunchy-10.ttf") format('opentype'); }
 @font-face {font-family: "Trebuchet" ; src: url("../fonts/trebucet10.ttf")     format("opentype"); }

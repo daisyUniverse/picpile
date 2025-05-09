@@ -1,3 +1,5 @@
+/* Content ( Contains everything in both the main pic preview and filmstrip pane ) */
+
 #Content {
     z-index: 0;
     font-family: Tahoe;

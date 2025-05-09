@@ -1,3 +1,5 @@
+/* Titlebar ( Contains the window management buttons, title, and title icon ) */
+
 /* Header bar container */
 #Ribbon { position: absolute; width: 100%; left: 0; top: 0; }
 
