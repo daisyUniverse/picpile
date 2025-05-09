@@ -1,0 +1,123 @@
+#LeftPane {
+    
+    position: absolute;
+    background: linear-gradient(to bottom, #8cb3ec, #778ddf);
+    height: calc(100% - 112px);
+    width: 238px;
+    left: 0;
+    bottom: 0;
+    overflow-x: scroll;
+    overflow-y: none;
+    scrollbar-width: thin;
+}
+
+#PictureTasks, #FileTasks, #OtherPlaces, #Details {
+    position: absolute;
+    width: 185px;
+    height: 25px;  
+    left: 12px;
+    
+    background-image: url("../gfx/taskgradient.png");
+    background-repeat: repeat-y;
+    background-position-y: 0x;
+    background-position-x: 0px;
+    background-size: 185px;
+    
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    color: #0066cc;
+    font-size: 13px;
+    line-height: 31px;
+    text-indent: 13px;
+}
+
+#PictureTasks {
+    position: relative;
+    top: 19px;
+    line-height: 28px;
+    letter-spacing: .6px;
+    color: white;
+    text-indent: 33px;
+    background-image: url("../gfx/ptaskgradient.png");
+    background-repeat: repeat-y;
+    background-position-y: 0x;
+    background-position-x: 0px;
+    background-size: 185px;
+
+    /* handle the little polaroid in the corner of the titlebar */
+    .polaroid { left: -1px; top:-7px; height: 32px; object-fit: cover; position: absolute; }
+}
+
+#PTWin,#FTWin,#OPWin,#DWin {
+    position: absolute;
+    top: 25px;
+    width: 183px;
+
+    background-color: #d6dff7;
+    border: 1px solid white;
+    border-top: 0px;
+    
+    color: #215dc6;
+    
+    text-rendering: optimizeLegibility;
+}
+
+#PTWin { /* Photo Tasks needs special treatment because it's a little bitch */
+    height: 165px;
+    border: 1px solid white;
+
+    background-color: #f2f5ff;
+    background-image: url('../gfx/polaroidWatermark.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-blend-mode: multiply;
+}
+
+/* For now we're manually defining how big the task windows are...      */
+/* Eventually this will need to be dynamic to allow for menu collapsing */
+#FileTasks   { top: 226px; }
+#FTWin    { height: 137px; }
+#OtherPlaces { top: 403px; }
+#OPWin    {  height: 97px; }
+#Details     { top: 540px; }
+#Dwin     { height: 167px; }
+
+#PaneText {
+    position: relative;
+    line-height: 11.1px;
+    
+    word-spacing: -3.2px;
+    width: 141px;
+    left: 27px;
+    top: -3px;
+    
+}
+
+#PaneText a {
+    color: #215dc6;
+    font-family: Tahoe;
+    font-size: 14px;
+    letter-spacing: .77px;
+    text-decoration:-moz-none;
+    text-decoration: none;
+}
+
+#PaneText span {
+    position: absolute;
+    top: 19px;
+    left: -25px;
+}
+
+#PaneText a:hover {
+    text-decoration: underline;
+}
+
+#PaneText img {
+    left: -11px;
+    height: 8px;
+    top: 1px;
+    scale: 2;
+    overflow: visible;
+}

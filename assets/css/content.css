@@ -1,0 +1,116 @@
+#Content {
+    z-index: 0;
+    font-family: Tahoe;
+    position: absolute;
+    background-color: #f2f4fc;
+
+    width: calc(100% - 210px);
+    height: calc(100% - 112px);
+    bottom: 0;
+    right: 0;
+}
+
+#PIC {
+    z-index: 0;
+    font-size: 82px;
+    position: absolute;
+
+    background-color: #f3f6ff;
+    background-image: url(../gfx/default.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat:no-repeat;
+
+    height: calc(100% - 205px);
+    width: calc(50% - 150px);
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid black;
+    align-content: center;
+    text-indent: 15px;
+    overflow: hidden;
+    top: 5px;
+}
+
+#WIDGET {
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#REEL {
+    z-index: -1;
+    position: absolute;
+    height: 160px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    gap: 26px;
+
+    padding: 12px;
+    background-color: #fff;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    background-image: url('../gfx/polaroidWatermark.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.thumbnail {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 100px;
+    height: 100px;
+    position: relative;
+    padding: 4px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    
+}
+
+.thumbnail img {
+    border: 1px solid #ece9d8;
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.thumbnail p {
+    /*#316ac5;*/
+    color: black;
+    background-color: transparent;
+    height: 15px;
+    line-height: 14px;
+    font-size: 12px;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    bottom: -19px;
+    left: 50;
+}
+
+.thumbnail.selected {
+    img {
+        outline: 3px solid #316ac5;
+        outline-offset: -3px;
+    }
+    
+    p {
+        color: white;
+        background-color: #316ac5;
+    }
+    
+}

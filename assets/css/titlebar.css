@@ -1,0 +1,32 @@
+/* Header bar container */
+#Ribbon { position: absolute; width: 100%; left: 0; top: 0; }
+
+#DECORATION { 
+    z-index: 1;
+    line-height: 29px;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAAJcEhZcwAADrwAAA68AZW8ckkAAABhSURBVAjXNcqxDQIxFATR/bM+k1wFlAKV0DkJEgFcRIROIIy/TABEoyeNOFzY7bfcUhxPQX0utHWm5ErvbyQRUbCDzPGzkcTg34LCyBV5+j6ToQzSDXlDPERtndf1TOj+AXlzHUxFxv9TAAAAAElFTkSuQmCC");
+    background-color: #0071ed;
+    width: 100%;
+    height: 26px;
+    top: 0;
+    text-indent: 2px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-shadow: 1px 1px 2px black;
+}
+
+#WM { /* Window controls (Minimize, Maximize, Close) */
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 79px;
+    
+}
+
+#WM img { /* Fucky */
+    left: 10px;
+    margin-left: -3px;
+}

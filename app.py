@@ -12,17 +12,8 @@ app = Flask(__name__)
 # Setup directories, if you want to rename them, change that here first.. 
 # This *should* technically allow for inserting an arbitrary path for images, if you want your pictures folder be a shared folder
 BASE_DIR     = os.path.dirname(__file__)
-
 PICTURES_DIR = os.path.join(BASE_DIR, "pictures")
-
 ASSETS_DIR   = os.path.join(BASE_DIR, "assets")
-FONTS_DIR    = os.path.join(ASSETS_DIR, "fonts")
-GFX_DIR    = os.path.join(ASSETS_DIR, "gfx")
-
-# Eventually allow for hot-swappable stylesheets/scripts for themes
-STYLE        = "/css/style.css"
-SCRIPT        = "/js/script.js"
-
 
 # Main endpoint to serve the file browser
 @app.route("/", defaults={"subpath": ""})
@@ -52,7 +43,7 @@ def index(subpath):
             "is_dir": os.path.isdir(os.path.join(folder, name))
         })
 
-    return render_template("index.html", entries=entries, current_url=loc, stylesheet=STYLE, js=SCRIPT)
+    return render_template("index.html", entries=entries, current_url=loc)
 
 # Serve the actual pics from the pictures directory
 @app.route("/pictures/<path:filename>")
@@ -62,12 +53,13 @@ def pictures(filename):
 # Serve the graphics (icons and junk)
 @app.route("/gfx/<path:filename>")
 def assets(filename):
-    return send_from_directory(GFX_DIR, filename)
+    return send_from_directory(os.path.join(ASSETS_DIR, "gfx"), filename)
 
 # Serve some assets that would normally be static
 # (mostly so I don't have to fight caching to do dev, will make it static later)
 @app.route("/css/<path:filename>")
-def style(filename): return send_from_directory(ASSETS_DIR, filename)
+def style(filename): 
+    return send_from_directory(os.path.join(ASSETS_DIR, "css"), filename)
 
 @app.route("/js/<path:filename>")
 def script(filename): return send_from_directory(ASSETS_DIR, filename)
@@ -75,7 +67,7 @@ def script(filename): return send_from_directory(ASSETS_DIR, filename)
 # Serve the fonts
 @app.route("/fonts/<path:filename>")
 def fonts(filename):
-    return send_from_directory(FONTS_DIR, filename)
+    return send_from_directory(os.path.join(ASSETS_DIR, "fonts"), filename)
 
 # Serve the favison
 @app.route("/favicon.ico")

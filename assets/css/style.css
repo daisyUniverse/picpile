@@ -1,0 +1,30 @@
+/* PicPile Stylesheet   */
+/* Welcome to hell!     */
+/* Daisy Universe [D]   */
+/* 05 . 09 . 25         */
+
+/* A war was fought here */
+@font-face {font-family: "Tahoma-10" ; src: url("../fonts/tahoma-crunchy-10.ttf") format('opentype'); }
+@font-face {font-family: "Trebuchet" ; src: url("../fonts/trebucet10.ttf")     format("opentype"); }
+@font-face {font-family: "Tahoe"     ; src: url("../fonts/tahoebyhand.ttf")       format('opentype'); }
+@font-face {font-family: "TahomaBM"     ; src: url("../fonts/TahomaBM.ttf")       format('opentype'); }
+
+* { /* Catch-all for most text */
+    font-family: TahomaBM;  font-size: 16px;
+    /* Try not to let the user select text most of the time */
+    -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; 
+}
+
+img { /* Ensure all images are not interpolated */
+    position: relative;
+    top: 2px;
+    image-rendering: pixelated;
+}
+
+.shadow { /* Add a drop shadow to certain elements */
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+.trebuchet { /* Just set the class to trebuchet for the few elements that use it */
+    font-family: Trebuchet;
+}
