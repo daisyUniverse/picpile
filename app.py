@@ -9,11 +9,15 @@ from markupsafe import Markup
 
 app = Flask(__name__)
 
+# TODO: Create a config.json file to keep site configuration in
+
 # Setup directories, if you want to rename them, change that here first.. 
 # This *should* technically allow for inserting an arbitrary path for images, if you want your pictures folder be a shared folder
+
 BASE_DIR     = os.path.dirname(__file__)
 PICTURES_DIR = os.path.join(BASE_DIR, "pictures")
 ASSETS_DIR   = os.path.join(BASE_DIR, "assets")
+CFG_TITLE = "PicPile"
 
 # Main endpoint to serve the file browser
 @app.route("/", defaults={"subpath": ""})
@@ -25,6 +29,10 @@ def index(subpath):
     if not os.path.isdir(folder):
         abort(404)
 
+    loc = ( request.url )
+    titlebar = loc.split("/")[-1]
+    if titlebar == "": titlebar = CFG_TITLE
+
     # Generate the folder based on contents per page load so we don't have to reload the server to add more content
     entries = []
     for name in sorted(os.listdir(folder)):
@@ -33,7 +41,6 @@ def index(subpath):
         if name.startswith("_"): continue
 
         rel = f"{subpath}/{name}" if subpath else name
-        loc = ( request.url )
         # Get just the name for labelling purposes
         name_only = os.path.splitext(name)[0]
         entries.append({
@@ -43,7 +50,7 @@ def index(subpath):
             "is_dir": os.path.isdir(os.path.join(folder, name))
         })
 
-    return render_template("index.html", entries=entries, current_url=loc)
+    return render_template("index.html", entries=entries, current_url=loc, title=CFG_TITLE, folder=titlebar)
 
 # Serve pictures from the pictures folder (user definable, so it needs to be seperate)
 @app.route("/pictures/<path:filename>")
@@ -54,3 +61,6 @@ def pictures(filename): return send_from_directory(PICTURES_DIR, filename)
 def assets(filename): return send_from_directory(ASSETS_DIR, filename)
 
 if __name__ == "__main__": app.run(debug=True, port=420)
+
+# TODO: Write an image thumbnail generator so I'm not forcing every user to download the full res of every image on pageload
+# (noticing some major slowdown cause of this)
