@@ -7,7 +7,7 @@
     font-size: 14px;
     color: white;
     position: absolute;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAzfHTVMAAAAJcEhZcwAADrwAAA68AZW8ckkAAABhSURBVAjXNcqxDQIxFATR/bM+k1wFlAKV0DkJEgFcRIROIIy/TABEoyeNOFzY7bfcUhxPQX0utHWm5ErvbyQRUbCDzPGzkcTg34LCyBV5+j6ToQzSDXlDPERtndf1TOj+AXlzHUxFxv9TAAAAAElFTkSuQmCC");
+    background: url("../gfx/titlebar.png");
     background-color: #0071ed;
     width: 100%;
     height: 26px;
