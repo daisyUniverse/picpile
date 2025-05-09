@@ -20,15 +20,16 @@
     text-shadow: 1px 1px 2px black;
 }
 
-#WM { /* Window controls (Minimize, Maximize, Close) */
+/* Window controls (Minimize, Maximize, Close) */
+#WM { 
     position: absolute;
     right: 0px;
     top: 0px;
-    width: 79px;
-    
+    width: 79px; 
 }
 
-#WM img { /* Fucky */
+/* Fucky */
+#WM img { 
     left: 10px;
     margin-left: -3px;
 }

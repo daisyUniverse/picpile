@@ -3,30 +3,70 @@
 /* Daisy Universe [D]   */
 /* 05 . 09 . 25         */
 
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Quick reference for some styling/weird terminology I use in this project...                                          |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*|                                         Window Decoration                                                     _ [] X |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Titlebar      | The top bar of the page including the fake window title and title icon                               |*/
+/*| WM            | Buttons like minimize, maximize, close                                                               |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*|                                         Menubar Items                                                         _ [] X |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Menubar       | Self-explaning, contains all the top level items in the menubar ( File, Edit, View, etc., )          |*/
+/*| Submenu       | First level of any given menubar item                                                                |*/
+/*| Submenu child | Second level of a given submenu item ( opens to the side of the submenu )                            |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*|                                         File Navigation                                                       _ [] X |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Ribbon        | Big container for the Navbar and the Address bar                                                     |*/
+/*| Navbar        | Container for just the folder navigation buttons ( Back, forward, up, etc., )                        |*/
+/*| Address bar   | Contains the address label, textbox, and GO button                                                   |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*|                                         Action Pane                                                           _ [] X |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Actions       | The pane on the left hand side of the window containing Action tasks ( ie file tasks )               |*/
+/*| Action Window | The window (without the header) containing each task                                                 |*/
+/*| Tasks         | Each of the items in a given action window ( ie copy this file, set wallpaper, etc., )               |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*|                                         Main Content                                                          _ [] X |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+/*| Content       | Container for the picture preview, reel, and widget                                                  |*/
+/*| Pic           | The actual big image preview                                                                         |*/
+/*| Widget        | the Prev/Next photo & Rotate left/right cluster of buttons                                           |*/
+/*| Filmstrip     | The container for the scrollable thumbnail selector                                                  |*/
+/*| Thumbnail     | think really hard about this one                                                                     |*/
+/*|----------------------------------------------------------------------------------------------------------------------|*/
+
+
 /* This is the general styling for the rest of the site, stuff you want to apply to everything goes in here */
 
 /* A war was fought here */
 @font-face {font-family: "Tahoma-10" ; src: url("../fonts/tahoma-crunchy-10.ttf") format('opentype'); }
-@font-face {font-family: "Trebuchet" ; src: url("../fonts/trebucet10.ttf")     format("opentype"); }
+@font-face {font-family: "Trebuchet" ; src: url("../fonts/trebucet10.ttf")        format("opentype"); }
 @font-face {font-family: "Tahoe"     ; src: url("../fonts/tahoebyhand.ttf")       format('opentype'); }
-@font-face {font-family: "TahomaBM"     ; src: url("../fonts/TahomaBM.ttf")       format('opentype'); }
+@font-face {font-family: "TahomaBM"  ; src: url("../fonts/TahomaBM.ttf")          format('opentype'); }
 
-* { /* Catch-all for most text */
+ /* Catch-all for most text */
+* {
     font-family: TahomaBM;  font-size: 16px;
     /* Try not to let the user select text most of the time */
     -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; 
 }
 
-img { /* Ensure all images are not interpolated */
-    position: relative;
-    top: 2px;
-    image-rendering: pixelated;
-}
+/* Ensure all images are not interpolated */
+img {  position: relative; top: 2px; image-rendering: pixelated; }
 
-.shadow { /* Add a drop shadow to certain elements */
-    filter: drop-shadow(1px 1px 1px black);
-}
-
-.trebuchet { /* Just set the class to trebuchet for the few elements that use it */
-    font-family: Trebuchet;
-}
+/* Utility Classes */
+.shadow { filter: drop-shadow(1px 1px 1px black); }
+.trebuchet { font-family: Trebuchet; }

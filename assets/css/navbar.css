@@ -67,6 +67,8 @@
     color: #cac6af;
 }
 
+/* Address bar */
+/* @TODO: Make this into a textbox with a dropdown to navigate neighboring folders */
 #ADDR {
     z-index: -1001;
     color: #9c9891;

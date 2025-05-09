@@ -1,5 +1,4 @@
 /* Content ( Contains everything in both the main pic preview and filmstrip pane ) */
-
 #Content {
     z-index: 0;
     font-family: Tahoe;
@@ -12,6 +11,8 @@
     right: 0;
 }
 
+/* Big picture preview                                                                                      */
+/* @TODO: Stop using background-image for this, scaling is weird and users don't get normal image controls  */
 #PIC {
     z-index: 0;
     font-size: 82px;
@@ -34,6 +35,8 @@
     top: 5px;
 }
 
+/* Widget ( Prev/next photo and Rotate left/right buttons ) */
+/* @TODO: Add styling to handle hovering/clicking           */
 #WIDGET {
     position: absolute;
     bottom: 170px;
@@ -41,6 +44,8 @@
     transform: translate(-50%);
 }
 
+/* Filmstrip pane                   */
+/* @TODO: actually. this ones fine. */
 #REEL {
     z-index: -1;
     position: absolute;
@@ -67,12 +72,11 @@
     background-repeat: no-repeat;
 }
 
+/* Thumbnail stuff ( will need to update for when I write a thumbnail generator ) */
 .thumbnail {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     width: 100px;
     height: 100px;
     position: relative;
@@ -104,15 +108,5 @@
     left: 50;
 }
 
-.thumbnail.selected {
-    img {
-        outline: 3px solid #316ac5;
-        outline-offset: -3px;
-    }
-    
-    p {
-        color: white;
-        background-color: #316ac5;
-    }
-    
-}
+.thumbnail.selected img { outline: 3px solid #316ac5; outline-offset: -3px; }
+.thumbnail.selected p   { color: white; background-color: #316ac5; }

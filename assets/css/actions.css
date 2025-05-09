@@ -1,5 +1,4 @@
 /* Actions ( Contains everything in the left sidebar ) */
-
 #LeftPane {
     
     position: absolute;
@@ -13,6 +12,7 @@
     scrollbar-width: thin;
 }
 
+/* Action menu header styling */
 #PictureTasks, #FileTasks, #OtherPlaces, #Details {
     position: absolute;
     width: 185px;
@@ -34,6 +34,7 @@
     text-indent: 13px;
 }
 
+/* Picture task specific styling, it's a bit different.. */
 #PictureTasks {
     position: relative;
     top: 19px;
@@ -48,9 +49,9 @@
     background-size: 185px;
 }
 
-/* handle the little polaroid in the corner of the titlebar */
 #PictureTasks .polaroid { left: -1px; top:-7px; height: 32px; object-fit: cover; position: absolute; }
 
+/* Task window styling */
 #PTWin, #FTWin, #OPWin, #DWin {
     position: absolute;
     top: 25px;
@@ -65,7 +66,8 @@
     text-rendering: optimizeLegibility;
 }
 
-#PTWin { /* Photo Tasks needs special treatment because it's a little bitch */
+/* Picture task window styling */
+#PTWin {
     height: 165px;
     border: 1px solid white;
 
@@ -86,15 +88,14 @@
 #Details     { top: 540px; }
 #Dwin     { height: 167px; }
 
+/* Action tasks item styling */
 #PaneText {
     position: relative;
     line-height: 11.1px;
-    
     word-spacing: -3.2px;
     width: 141px;
     left: 27px;
     top: -3px;
-    
 }
 
 #PaneText a {
@@ -106,6 +107,9 @@
     text-decoration: none;
 }
 
+/* This is a stupid fix for something I couldn't figure out                                             */
+/* Basically word wrap insets behind where it should, so the one line that has wrapped text looked bad  */
+/* @TODO: Fix this                                                                                      */
 #PaneText span {
     position: absolute;
     top: 19px;
