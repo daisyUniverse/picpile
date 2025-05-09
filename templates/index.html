@@ -1,215 +1,21 @@
+<!-- PicPile                                                    -->
+<!-- A recreation of the Windows XP film reel as a flask server -->
+<!-- Daisy Universe [D]                                         -->
+<!-- 05 . 09 . 25                                               -->
+
+<!-- Much of the page is broken out into components...          -->
+<!-- Mostly just to keep things a little more neat...           -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Windows XP</title>
-    <link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
+{% include 'header.html' %}
+
+<body>
     <main>
-        <!-- Titlebar -->
-        <div id="Ribbon">RIBBON
-            <div id="DECORATION" class="trebuchet"> <img class="shadow" src="gfx/folder16.ico" width="16" height="16"> My Pictures 
-            <div id="WM">
-                <img src="gfx/minimizeButton.png">
-                <img src="gfx/maximizeButton.png">
-                <img src="gfx/closeButton.png">
-            </div>
-        </div> 
-
-            <!-- All of the menubar items -->
-            <div id="MENU"> 
-                <div class="MENU_BUTTONS">
-                    <div id="M1">File
-                        <div id="Submenu" class="SubM1">
-                            <div id="SubM1_1">New</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM1_2">Create Shortcut</div>
-                            <div id="SubM1_3">Delete</div>
-                            <div id="SubM1_4">Rename</div>
-                            <div id="SubM1_5">Properties</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM1_6">Close</div>
-                        </div>
-                    </div>
-
-                    <div id="M2">Edit
-                        <div id="Submenu" class="SubM2">
-                            <div id="SubM2_1">Undo Delete</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM2_2">Cut</div>
-                            <div id="SubM2_3">Copy</div>
-                            <div id="SubM2_4">Paste</div>
-                            <div id="SubM2_5">Paste Shortcut</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM2_6">Copy to Folder...</div>
-                            <div id="SubM2_7">Move to Folder...</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM2_8">Select All</div>
-                            <div id="SubM2_9">Invert Selection</div>
-                        </div>
-                    </div>
-                    <div id="M3">View
-                        <div id="Submenu" class="SubM3">
-                            <div id="SubM3_1">Toolbars</div>
-                            <div id="SubM3_2">Status Bar</div>
-                            <div id="SubM3_3">Explorer Bar</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM3_4">Filmstrip</div>
-                            <div id="SubM3_5">Thumbnails</div>
-                            <div id="SubM3_6">Tiles</div>
-                            <div id="SubM3_7">Icons</div>
-                            <div id="SubM3_8">List</div>
-                            <div id="SubM3_9">Details</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM3_10" class="Parent">Arrange Icons by
-                                <div id="Submenu" class="Child">
-                                    <div id="SubM3SubM1_1">Name</div>
-                                    <div id="SubM3SubM1_2">Size</div>
-                                    <div id="SubM3SubM1_3">Type</div>
-                                    <div id="SubM3SubM1_4">Modified</div>
-                                    <div id="SubM3SubM1_6">Picture Taken On</div>
-                                    <div id="SubM3SubM1_7">Dimensions</div>
-                                    <div id="SubM_Seperator"></div>
-                                    <div id="SubM3SubM1_8">Show in Groups</div>
-                                    <div id="SubM3SubM1_9">Auto Arrange</div>
-                                    <div id="SubM3SubM1_10">Align to Grid</div>
-                                </div>
-                            </div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM3_11">Choose Details...</div>
-                            <div id="SubM3_12">Customize This Folder...</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM3_13">Go To</div>
-                            <div id="SubM3_14">Refresh</div>
-                        </div>
-                    </div>
-                    <div id="M4">Favorites
-                        <div id="Submenu" class="SubM4">
-                            <div id="SubM4_1">Add to Favorites...</div>
-                            <div id="SubM4_1">Orginize Favorites...</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM4_1" class="Parent">Friends Websites
-                                <div id="Submenu" class="Child">
-                                    <div id="SubM4SubM1_1"><a href="https://slitherpunk.itch.io/">Autumn Rain</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://deerz.one/">IDA DEERZ</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://toastietv.straw.page/">ToastieTV</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://poss.gay/">DIDELPHIDRAGON</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://wunkolo.github.io/">Wunk</a></div>
-                                </div>
-                            </div>
-                            <div id="SubM4_1" class="Parent">Daisies Websites
-                                <div id="Submenu" class="Child">
-                                    <div id="SubM4SubM1_1"><a href="https://daisy.universe.dog/">Main Website</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://tech.universe.dog/">Tech Blog</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://desna.universe.dog/">Desna Prime</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://blog.universe.dog/">Personal Blog</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://chat.universe.dog/">Nebula IRC Chat</a></div> 
-                                    <div id="SubM4SubM1_1"><a href="https://bsky.app/profile/daisy.universe.dog">Bluesky</a></div>
-                                    <div id="SubM4SubM1_1"><a href="https://github.com/daisyUniverse">Github</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="M5">Tools
-                        <div id="Submenu" class="SubM5">
-                            <div id="SubM5_1">Map Network Drive...</div>
-                            <div id="SubM5_1">Disconnect Network Drive...</div>
-                            <div id="SubM5_1">Synchronize...</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM5_1">Folder Options...</div>
-                        </div>
-                    </div>
-                    <div id="M6">Help
-                        <div id="Submenu" class="SubM6">
-                            <div id="SubM6_1">Help and Support Center</div>
-                            <div id="SubM_Seperator"></div>
-                            <div id="SubM6_2"><a href="https://youtu.be/LZgeIReY04c">Is this copy of Windows legal?</a></div>
-                            <div id="SubM6_3"><a href="https://github.com/daisyUniverse/picpile">About PicPile</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="WINLOGO">
-                    <img src="gfx/winLogo.png">
-                </div> </div>
-
-            <!-- Navbar stuff (back, forward, etc) -->
-            <div id="NAV">
-                <img id="BACK_BUTTON" src="gfx/backButton.png" > 
-                <div id="BACK">Back</div>
-                <img id="DT1" src="gfx/downtick.png" > 
-                <img id="FORWARD_BUTTON" src="gfx/fwdButton.png" > 
-                <img id="DT2" src="gfx/downtick.png" > 
-                <img id="UP_BUTTON" src="gfx/up.png" > 
-                <div id="SEP1"></div>
-                <img id="SEARCH_BUTTON" src="gfx/searchButton.png" > 
-                <div id="SEARCH">Search</div>
-                <img id="FOLDERS_BUTTON" src="gfx/folderButton.png" > 
-                <div id="FOLDERS">Folders</div>
-                <div id="SEP2"></div>
-                <img id="VIEW_BUTTON" src="gfx/view.png" > 
-                <img id="DT3" src="gfx/downtick.png" > 
-            </div>
-            <!---------------------------------------->
-
-            <!-- Address bar -->
-            <div id="ADDR">     Address <div id="TEXTBOX"> <img class="shadow" src="gfx/folder16.ico" width="16" height="16"> {{ current_url }} <div id="ADDR_DROP"></div></div> <div id="GO"><img src="gfx/go.ico">Go</div> </div>
-        </div>
-        
-        
-        <!-- Action Pane ( IE "Email this file", "Delete this file", Etc., ) -->
-        <div id="LeftPane">
-            <div id="PictureTasks" class="trebuchet">
-                <img class="polaroid" src="gfx/polaroid16.png" width="32" height="32"> Picture Tasks
-                <div id="PTWin">
-                    <div id="PaneText">
-                        <br>
-                        <a href="https://daisy.universe.dog"><img src="gfx/camera.ico">Get pictures from camera <span>or scanner</span><br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/project16.ico">View as a slide show<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/webphoto16.ico">Order prints online<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/print16.ico">Print this picture<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/wallpaper16.ico">Set as desktop background<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/copycd16.ico">Copy to CD<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/webphoto16.ico">Shop for pictures online<br><br></a>
-                    </div>
-                </div>
-            </div>
-            <div id="FileTasks" class="trebuchet">
-                File and Folder Tasks
-                <div id="FTWin">
-                    <div id="PaneText" class="tahoma-10">
-                        <br>
-                        <a href="https://daisy.universe.dog"><img src="gfx/rename.ico">Rename this file<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/move16.ico">Move this file<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/copy.ico">Copy this file<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/publish16.ico">Publish this file to the Web<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/delete16.ico">E-mail this file<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/delete16.ico">Delete this file<br><br></a>
-                    </div>
-                </div>
-            </div>
-            <div id="OtherPlaces" class="trebuchet">
-                Other Places
-                <div id="OPWin">
-                    <div id="PaneText">
-                        <br>
-                        <a href="https://daisy.universe.dog"><img src="gfx/picfolder16.ico">Shared Pictures<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/picfolder16.ico">My Pictures<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/folder16.ico">My Computer<br><br></a>
-                        <a href="https://daisy.universe.dog"><img src="gfx/folder16.ico">My Network Places<br><br></a>
-                    </div>
-                </div>
-            </div>
-            <div id="Details" class="trebuchet">
-                Details
-                <div id="Dwin"
-                ></div>
-            </div>
-        </div>
-        <!--------------------------------------------------------------------------------------->
+        {% include 'titlebar.html'  %}
+        {% include 'menubar.html'   %}
+        {% include 'navbar.html'    %}        
+        {% include 'actions.html'   %}
         
         <!-- Main content window -->
         <div id="Content">
@@ -248,8 +54,6 @@
                 {% endfor %}
               </div>
         </div>
-        <!---------------------------------------------------------------------------------------------->
-
     </main>
     <script src="{{ js }}"></script>
   </body>

@@ -1,6 +1,6 @@
 # PicPile
 # Serve your images in a windows XP Filmstrip view
-# Daisy Univeerse [D]
+# Daisy Universe [D]
 # 05 . 08 . 25
 
 import os
