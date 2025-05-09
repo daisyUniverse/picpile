@@ -16,45 +16,8 @@
         {% include 'menubar.html'   %}
         {% include 'navbar.html'    %}        
         {% include 'actions.html'   %}
-        
-        <!-- Main content window -->
-        <div id="Content">
-
-            <!-- Big pic preview -->
-            <div id="PIC"></div>
-
-            <!-- The widget (Previous photo, next photo, rotate) controls -->
-            <div id="WIDGET">
-                <img src="gfx/prevPhoto.png">
-                <img src="gfx/nextPhoto.png">
-                <img src="gfx/seperator.png">
-                <img src="gfx/rotateLeft.png">
-                <img src="gfx/rotateRight.png">
-            </div>
-
-            <!-- Thumbnail reel (images placed here will be shown as thumbnails) -->
-            <div id="REEL">
-                {% for e in entries %}
-                  {% if e.is_dir %}
-                    <!-- wrap the folder thumbnail in an <a> so navigation is native -->
-                    <a href="{{ url_for('index', subpath=e.path) }}"
-                       class="thumbnail folder">
-                      <!-- absolute URL for the icon so it never resolves to /pictures/... -->
-                      <img src="{{ url_for('assets', filename='FolderThumbnail.png') }}"
-                           width="100" height="100" alt="folder">
-                      <p>{{ e.name }}</p>
-                    </a>
-                  {% else %}
-                    <div class="thumbnail">
-                      <img src="{{ url_for('pictures', filename=e.path) }}"
-                           width="100" height="100" alt="{{ e.name }}">
-                      <p>{{ e.label }}</p>
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
-        </div>
+        {% include 'content.html'   %}
     </main>
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

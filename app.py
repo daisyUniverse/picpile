@@ -45,34 +45,12 @@ def index(subpath):
 
     return render_template("index.html", entries=entries, current_url=loc)
 
-# Serve the actual pics from the pictures directory
+# Serve pictures from the pictures folder (user definable, so it needs to be seperate)
 @app.route("/pictures/<path:filename>")
-def pictures(filename):
-    return send_from_directory(PICTURES_DIR, filename)
+def pictures(filename): return send_from_directory(PICTURES_DIR, filename)
 
-# Serve the graphics (icons and junk)
-@app.route("/gfx/<path:filename>")
-def assets(filename):
-    return send_from_directory(os.path.join(ASSETS_DIR, "gfx"), filename)
+# Serve assets from da assets folder
+@app.route("/assets/<path:filename>")
+def assets(filename): return send_from_directory(ASSETS_DIR, filename)
 
-# Serve some assets that would normally be static
-# (mostly so I don't have to fight caching to do dev, will make it static later)
-@app.route("/css/<path:filename>")
-def style(filename): 
-    return send_from_directory(os.path.join(ASSETS_DIR, "css"), filename)
-
-@app.route("/js/<path:filename>")
-def script(filename): return send_from_directory(ASSETS_DIR, filename)
-
-# Serve the fonts
-@app.route("/fonts/<path:filename>")
-def fonts(filename):
-    return send_from_directory(os.path.join(ASSETS_DIR, "fonts"), filename)
-
-# Serve the favison
-@app.route("/favicon.ico")
-def favicon():
-    return assets("favicon.ico")
-
-if __name__ == "__main__":
-    app.run(debug=True, port=420)
+if __name__ == "__main__": app.run(debug=True, port=420)
