@@ -17,9 +17,9 @@
     height: 18px;
 }
 
-#NAV { /* Navbar container (Back, Forward, Up, Etc...) */
+/* Navbar container (Back, Forward, Up, Etc...) */
+#NAV { 
     z-index: -1001;
-    
     position: absolute;
     background-color: #f5f7f9;
     width: 100%;
@@ -93,11 +93,12 @@
     align-content: center;
     right: 25px;
     height: 23px;
-    img {
-        position: absolute;
-        top: 4px;
-        left: -15px;
-    }
+}
+
+#GO img {
+    position: absolute;
+    top: 4px;
+    left: -15px;
 }
 
 #TEXTBOX {

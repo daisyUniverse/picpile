@@ -46,12 +46,12 @@
     background-position-y: 0x;
     background-position-x: 0px;
     background-size: 185px;
-
-    /* handle the little polaroid in the corner of the titlebar */
-    .polaroid { left: -1px; top:-7px; height: 32px; object-fit: cover; position: absolute; }
 }
 
-#PTWin,#FTWin,#OPWin,#DWin {
+/* handle the little polaroid in the corner of the titlebar */
+#PictureTasks .polaroid { left: -1px; top:-7px; height: 32px; object-fit: cover; position: absolute; }
+
+#PTWin, #FTWin, #OPWin, #DWin {
     position: absolute;
     top: 25px;
     width: 183px;
