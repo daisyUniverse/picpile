@@ -3,7 +3,7 @@
     "AssetsDir" : "assets",
     "ThumbDB" : "config/thumbs_db.json",
     "Title" : "PicPile",
-    "ThumbnailSize" : [100, 100],
+    "ThumbnailSize" : [128, 128],
     "ThumbnailPath" : "thumbs",
     "Debug" : true,
     "Port" : 420,
