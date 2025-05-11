@@ -1,2 +1,3 @@
 # Ignore images in the pictures folder so we aren't packing up all of the test images every time
 pictures/*.jpg
+thumbs/*

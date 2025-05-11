@@ -1,0 +1,11 @@
+{
+    "PicturesDir" : "pictures",
+    "AssetsDir" : "assets",
+    "ThumbDB" : "config/thumbs_db.json",
+    "Title" : "PicPile",
+    "ThumbnailSize" : [100, 100],
+    "ThumbnailPath" : "thumbs",
+    "Debug" : true,
+    "Port" : 420,
+    "Host" : "0.0.0.0"
+}

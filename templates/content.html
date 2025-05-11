@@ -28,7 +28,7 @@
             </a>
             {% else %}
             <div class="thumbnail">
-                <img src="{{ url_for('pictures', filename=e.path) }}"
+                <img src="{{ url_for('pictures', filename=e.path, Thumbnail='Yes') }}"
                     width="100" height="100" alt="{{ e.name }}">
                 <p>{{ e.label }}</p>
             </div>

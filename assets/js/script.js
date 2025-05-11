@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         if (lastSelected) lastSelected.classList.remove("selected");
         thumb.classList.add("selected");
         const img = thumb.querySelector("img");
-        preview.style.backgroundImage = `url('${img.src}')`;
+        preview.style.backgroundImage = `url('${img.src.replace("Thumbnail=Yes", "Thumbnail=No")}')`;
         lastSelected = thumb;
         });
     });
