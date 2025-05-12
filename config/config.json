@@ -1,6 +1,6 @@
 {
     "PicturesDir" : "pictures",
-    "AssetsDir" : "assets",
+    "Theme" : "luna",
     "ThumbDB" : "config/thumbs_db.json",
     "Title" : "PicPile",
     "ThumbnailSize" : [128, 128],

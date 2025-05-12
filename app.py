@@ -20,6 +20,7 @@ app = Flask(__name__)
 BASE_DIR  = os.path.dirname( __file__ )
 config    = config_manager.cfgmgr( os.path.join( BASE_DIR, "config/config.json"  ) )
 thumbdb   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("ThumbDB") ) )
+themedir  = os.path.join("themes", config.get("Theme"))
 
 # @TODO: Currently, I think that setting the pictures folder in the config will only work on relative paths, this needs to be looked at..
 
@@ -90,7 +91,9 @@ def pictures(filename):
 
 # Serve assets from da assets folder
 @app.route("/assets/<path:filename>")
-def assets(filename): return send_from_directory(config.get("AssetsDir"), filename)
+def assets(filename): 
+    
+    return send_from_directory(themedir, filename)
 
 if __name__ == "__main__": app.run(debug=config.get("Debug"), port=config.get("Port"), host=config.get("Host"))
 
