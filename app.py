@@ -40,7 +40,10 @@ thumbnail_generator.FullCheck(
 @app.route("/<path:subpath>")
 def index(subpath):
     title = config.get("Title")
+
+    # Allow for custom view selection based on url param, with filmstrip as the configured default
     view = request.args.get('view', default = config.get("DefaultView"), type = str)
+    
     folder = os.path.join(config.get("PicturesDir"), subpath)
 
     # Do a thumbnail cheapcheck on pageload
