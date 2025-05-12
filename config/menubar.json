@@ -65,13 +65,13 @@
             "Wunk"              : ""
         },
         "Daisies Websites" : {
-            "Main Website"      : "",
-            "Tech Blog"         : "",
-            "Desna Prime"       : "",
-            "Personal Blog"     : "",
-            "Nebula IRC Chat"   : "",
-            "Bluesky"           : "",
-            "Github"            : ""
+            "Main Website"      : "https://universe.dog/",
+            "Tech Blog"         : "https://tech.universe.dog/",
+            "Desna Prime"       : "https://desna.universe.dog/",
+            "Personal Blog"     : "https://blog.universe.dog/",
+            "Nebula IRC Chat"   : "https://chat.universe.dog/",
+            "Bluesky"           : "https://bsky.app/profile/daisy.universe.dog",
+            "Github"            : "https://github.com/daisyUniverse"
         }
     },
     "Tools" : {
@@ -84,7 +84,7 @@
     "Help" : {
         "Help and Support Center"           : "",
         "Seperator_0"                       : "",
-        "Is this copy of Windows legal?"    : "",
-        "About PicPile"                     : ""
+        "Is this copy of Windows legal?"    : "https://youtu.be/LZgeIReY04c",
+        "About PicPile"                     : "https://github.com/daisyUniverse/picpile"
     }
 }

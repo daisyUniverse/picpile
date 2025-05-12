@@ -1,8 +1,9 @@
-// PicPile JS
-// Will try to keep this as minimal as possible
+// PicPile Content JS
+// Keep any logic specific to the Content (Filmreel, Preview) in here!
 // Daisy Universe [D]
 // 05 . 09 . 25
 
+// Listen for thumbnail clicks, and set the preview image
 document.addEventListener("DOMContentLoaded", ()=> {
     let lastSelected = null;
     const preview = document.getElementById("PIC");
@@ -19,14 +20,3 @@ document.addEventListener("DOMContentLoaded", ()=> {
     });
 });
 
-function navigateUp(event) {
-  event.preventDefault(); // Prevent the default link behavior
-
-  const currentUrl = window.location.href;
-  const lastSlashIndex = currentUrl.lastIndexOf("/");
-
-  if (lastSlashIndex !== -1) {
-    const newUrl = currentUrl.substring(0, lastSlashIndex);
-    window.location.href = newUrl;
-  }
-}

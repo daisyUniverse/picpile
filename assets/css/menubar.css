@@ -1,93 +1,116 @@
-/* Menubar ( File, Edit, View, etc... Also contains the little windows flag ) */
+/* --- Base Menubar Layout --- */
 
-#MENU { /* Topmost menubar container */
-    z-index: 1;
+/* This will hopefully be more able to adapt to dynamically generated menubars of arbitrary size */
+#Menu {
     position: absolute;
-    background-color: #f5f7f9;
+    top: 26px;
     width: 100%;
     height: 22px;
-    top: 26px;
+    background-color: #f5f7f9;
     border-bottom: 1px solid #d8d2bd;
-}
-
-/* Menubar container */
-.MENU_BUTTONS {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-    top: 1px;
-    margin-left: 1px;
-    
-}
-
-/* Menubar item styling */
-.MENU_BUTTONS > div {
-    display: inline-block;
-    align-content: center;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 1px;
-    margin-right:1px;
-}
-
-/* Change color of Menubar item when hovering over it */
-.MENU_BUTTONS div:hover { background-color: #215dc6; color: white;}
-
-/* Change color of Sub-Menu item when hovering over it */
-#Submenu div:hover { background-color: #215dc6; color: white;}        
-
-/* Show the correct Sub-Menu when hovering over a Menubar item */
-#M1:hover .SubM1  { display:inline list-item; list-style-type: none; }
-#M2:hover .SubM2  { display:inline list-item; list-style-type: none; }
-#M3:hover .SubM3  { display:inline list-item; list-style-type: none; }
-#M4:hover .SubM4  { display:inline list-item; list-style-type: none; }
-#M5:hover .SubM5  { display:inline list-item; list-style-type: none; }
-#M6:hover .SubM6  { display:inline list-item; list-style-type: none; }        
-
-/* General style for the Sub-Menu */
-#Submenu {
-    position: absolute;
-    display: none;
-    background-color: white;
-    color: darkgray;
-    z-index: 1000;
-    margin-top: 20px;
-    margin-left: -31px;
-    width: 190px;
-    text-indent: 25px;
-    filter: drop-shadow(2px 2px 5px black);
-    padding: 1px;
-}
-
-/* Use links to designate if an item is a valid choice */
-#Submenu a {
-    text-decoration:-moz-none;
+    z-index: 1;
+    font-size: 14px;
+  }
+  
+  a {
     text-decoration: none;
     color: black;
-}
+  }
 
-/* Sub-Menu Seperators */
-#Submenu #SubM_Seperator { height: 1px; background-color: #aca899; }
+  .menubar {
+    display: flex;
+    margin: 0;
+    padding: 0 5px;
+    list-style: none;
+    line-height: 20px;
+    height: 22px;
+    align-items: center;
+  }
+  
+  .menu-item {
+    position: relative;
+    padding: 0 6px;
+    cursor: default;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  .menu-item:hover {
+    background-color: #215dc6;
+    color: white;
+  }
 
-/* Add the little arrow to parent Sub-Menu items */
-#Submenu .Parent {
+
+  
+  /* --- Submenus --- */
+  .submenu,
+  .child-submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
     color: black;
+    list-style: none;
+    padding: 1px 0;
+    margin: 0;
+    min-width: 190px;
+    border: 1px solid #aca899;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+  
+  .submenu li,
+  .child-submenu li {
+    padding: 1px 10px 1px 10px;
+    white-space: nowrap;
+
+  }
+  
+  .submenu li:hover,
+  .child-submenu li:hover {
+    background-color: #215dc6;
+    color: white;
+  }
+  
+  .separator {
+    background-color: #aca899;
+    height: 1px;
+  }
+  
+
+  /* --- Submenu Show Logic --- */
+  .menu-item:hover > .submenu {
+    display: block;
+    top: 100%;
+    left: 0;
+  }
+  
+  .has-child {
+    position: relative;
     background-image: url("../gfx/parentMenu.png");
     background-repeat: no-repeat;
-    background-position: right;
-}
+    background-position: right center;
+  }
+  
+  .has-child:hover > .child-submenu {
+    display: block;
+    top: 0;
+    left: 100%;
+  }
 
-/* Show child items when hovering over a parent */
-#Submenu .Parent:hover .Child {
-        background-color: white;
-        color: black;
-        display: list-item; 
-        list-style-type: none;
-        margin-top: -20px;
-        left: 222px;
-}
-
-/* Change color of child item when hovering over it */
-.Submenu .Parent div:hover { background-color: #215dc6; color: white;}
+  /* --- little windows logo --- */
+  #WINLOGO {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid beige;
+  }
+  
+  #WINLOGO img {
+    position: absolute;
+    left: 12px;
+    height: 18px;
+  }
+  
