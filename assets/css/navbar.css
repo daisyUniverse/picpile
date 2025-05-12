@@ -35,6 +35,18 @@
 #SEARCH  { left: 199px; }
 #FOLDERS { left: 271px; }
 
+#BACK_HOVER {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    display: none;
+}
+
+.back:hover #BACK_HOVER {
+    display: inline;
+}
+
 /* Navbar Buttons */
 #BACK_BUTTON, #FORWARD_BUTTON, #UP_BUTTON, #SEARCH_BUTTON, #FOLDERS_BUTTON, #VIEWS_BUTTON, #DT1, #DT2{
     position: absolute;

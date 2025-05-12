@@ -1,0 +1,90 @@
+{
+    "File" : {
+        "New"               : "",
+        "Seperator_0"       : "",
+        "Create Shortcut"   : "",
+        "Delete"            : "",
+        "Rename"            : "",
+        "Properties"        : "",
+        "Seperator_1"       : "",
+        "Exit"              : ""
+    },
+    "Edit" : {
+        "Undo Delete"           : "",
+        "Seperator_0"           : "",
+        "Cut"                   : "",
+        "Copy"                  : "",
+        "Paste Shortcut"        : "",
+        "Seperator_1"           : "",
+        "Copy to Folder ..."    : "",
+        "Move to Folder ..."    : "",
+        "Seperator_2"           : "",
+        "Select All"            : "",
+        "Invert Selection"      : ""
+    },
+    "View" : {
+        "Toolbar"       : "",
+        "Status Bar"    : "",
+        "Explorer Bar"  : "",
+        "Seperator_0"   : "",
+        "Filmstrip"     : false,
+        "Thumbnails"    : false,
+        "Tiles"         : false,
+        "Icons"         : false,
+        "List"          : false,
+        "Details"       : false,
+        "Seperator_1"   : "",
+        "Arrange Icons By" : {
+            "Name"              : false,
+            "Type"              : false,
+            "Size"              : false,
+            "Modified"          : false,
+            "Picture Taken On"  : false,
+            "Dimensions"        : false,
+            "Seperator_0"       : "",
+            "Show in Groups"    : false,
+            "Auto Arrange"      : false,
+            "Align to Grid"     : false
+        },
+        "Seperator_2"               : "",
+        "Choose Details..."         : "",
+        "Customize this Folder..."  : "",
+        "Seperator_3"               : "",
+        "Go To"                     : "",
+        "Refresh"                   : ""
+    },
+    "Favorites" : {
+        "Add to Favorites..."       : "",
+        "Orginize Favorites..."     : "",
+        "Seperator_0"               : "",
+        "Friends Websites" : {
+            "Autumn Rain"       : "",
+            "IDA DEERZ"         : "",
+            "ToastieTV"         : "",
+            "DIDELPHIDRAGON"    : "",
+            "Wunk"              : ""
+        },
+        "Daisies Websites" : {
+            "Main Website"      : "",
+            "Tech Blog"         : "",
+            "Desna Prime"       : "",
+            "Personal Blog"     : "",
+            "Nebula IRC Chat"   : "",
+            "Bluesky"           : "",
+            "Github"            : ""
+        }
+    },
+    "Tools" : {
+        "Map Network Drive..."          : "",
+        "Disconnect Network Drive..."   : "",
+        "Synchronize..."                : "",
+        "Seperator_0"                   : "",
+        "Folder Options..."             : ""
+    },
+    "Help" : {
+        "Help and Support Center"           : "",
+        "Seperator_0"                       : "",
+        "Is this copy of Windows legal?"    : "",
+        "About PicPile"                     : ""
+    }
+}

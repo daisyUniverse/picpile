@@ -1,0 +1,26 @@
+{
+    "Picture Tasks" : {
+        "Get pictures from Camera or Scanner"   : [ "" , "" ],
+        "View as a Slide Show"                  : [ "" , "" ],
+        "Order Prints Online"                   : [ "" , "" ],
+        "Print this picture"                    : [ "" , "" ],
+        "Set as Desktop Background"             : [ "" , "" ],
+        "Copy to CD"                            : [ "" , "" ],
+        "Shop for pictures online"              : [ "" , "" ]
+    },
+    "File and Folder Tasks" : {
+        "Rename this file"              : [ "" , "" ],
+        "Move this file"                : [ "" , "" ],
+        "Copy this file"                : [ "" , "" ],
+        "Publish this file to the Web"  : [ "" , "" ],
+        "E-Mail this file"              : [ "" , "" ],
+        "Shop for pictures online"      : [ "" , "" ]
+    },
+    "Other Places" : {
+        "Shared Pictures"       : [ "" , "" ],
+        "My Pictures"           : [ "" , "" ],
+        "My Computer"           : [ "" , "" ],
+        "My Network Places"     : [ "" , "" ]
+    },
+    "Details" : {}
+}

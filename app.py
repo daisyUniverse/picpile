@@ -21,6 +21,8 @@ BASE_DIR  = os.path.dirname( __file__ )
 config    = config_manager.cfgmgr( os.path.join( BASE_DIR, "config/config.json"  ) )
 thumbdb   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("ThumbDB") ) )
 
+# @TODO: Currently, I think that setting the pictures folder in the config will only work on relative paths, this needs to be looked at..
+
 # On server start, do a full thumbnail scan
 print("FULLCHECK: Scanning for changes in picture MD5 hashes...")
 thumbnail_generator.FullCheck( 
@@ -28,7 +30,7 @@ thumbnail_generator.FullCheck(
     config.get("ThumbnailPath"), 
     tuple(config.get("ThumbnailSize", [128,128])),
     thumbdb 
-    )
+)
 
 #-------------- Endpoints -------------#
 

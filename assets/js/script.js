@@ -18,3 +18,15 @@ document.addEventListener("DOMContentLoaded", ()=> {
         });
     });
 });
+
+function navigateUp(event) {
+  event.preventDefault(); // Prevent the default link behavior
+
+  const currentUrl = window.location.href;
+  const lastSlashIndex = currentUrl.lastIndexOf("/");
+
+  if (lastSlashIndex !== -1) {
+    const newUrl = currentUrl.substring(0, lastSlashIndex);
+    window.location.href = newUrl;
+  }
+}

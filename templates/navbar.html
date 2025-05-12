@@ -1,20 +1,42 @@
 <!-- Navbar stuff (back, forward, etc) -->
 <!-- TODO: Actually make these into functional file navigation buttons -->
 <div id="NAV">
-    <img id="BACK_BUTTON" src="assets/gfx/backButton.png" > 
-    <div id="BACK">Back</div>
-    <img id="DT1" src="assets/gfx/downtick.png" > 
-    <img id="FORWARD_BUTTON" src="assets/gfx/fwdButton.png" > 
-    <img id="DT2" src="assets/gfx/downtick.png" > 
-    <img id="UP_BUTTON" src="assets/gfx/up.png" > 
+    
+    <nav class="back" onclick="window.history.go(-1); return false;">
+        <img id="BACK_BUTTON" src="assets/gfx/backButton.png" > 
+        <img id="BACK_HOVER" src="assets/gfx/backHover.png">
+        <div id="BACK">Back</div>
+        <img id="DT1" src="assets/gfx/downtick.png" > 
+    </nav>
+
+    <nav class="forward" onclick="history.forward()">
+        <img id="FORWARD_BUTTON" src="assets/gfx/fwdButton.png" > 
+        <img id="DT2" src="assets/gfx/downtick.png" > 
+    </nav>
+
+    <nav class="up" onclick="navigateUp(event)">
+        <img id="UP_BUTTON" src="assets/gfx/up.png" > 
+    </nav>
+
     <div id="SEP1"></div>
-    <img id="SEARCH_BUTTON" src="assets/gfx/searchButton.png" > 
-    <div id="SEARCH">Search</div>
-    <img id="FOLDERS_BUTTON" src="assets/gfx/folderButton.png" > 
-    <div id="FOLDERS">Folders</div>
+
+    <nav class="search">
+        <img id="SEARCH_BUTTON" src="assets/gfx/searchButton.png" > 
+        <div id="SEARCH">Search</div>
+    </nav>
+
+    <nav class="folders">
+        <img id="FOLDERS_BUTTON" src="assets/gfx/folderButton.png" > 
+        <div id="FOLDERS">Folders</div>
+    </nav>
+
     <div id="SEP2"></div>
-    <img id="VIEW_BUTTON" src="assets/gfx/view.png" > 
-    <img id="DT3" src="assets/gfx/downtick.png" > 
+
+    <nav class="view">
+        <img id="VIEW_BUTTON" src="assets/gfx/view.png" > 
+        <img id="DT3" src="assets/gfx/downtick.png" > 
+    </nav>
+
 </div>
 
 <!-- Address bar -->
