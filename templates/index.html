@@ -13,15 +13,15 @@
     <main>
         {% include 'titlebar.html'  %}
         {% include 'menubar.html'   %}
-        {% include 'navbar.html'    %}        
-        {% include 'actions.html'   %}
-        {% include 'content.html'   %}
+        {% include 'navbar.html'    %}      
+        {% include 'views/' + view + '/actions.html'   %}  
+        {% include 'views/' + view + '/content.html'   %}
     </main>
     <script src="assets/js/titlebar.js"></script>
     <script src="assets/js/menubar.js"></script>
     <script src="assets/js/navbar.js"></script>
-    <script src="assets/js/actions.js"></script>
-    <script src="assets/js/content.js"></script>
+    <script src="assets/js/views/{{ view }}/actions.js"></script>
+    <script src="assets/js/views/{{ view }}/content.js"></script>
   </body>
 </html>
 

@@ -19,7 +19,7 @@
     position: absolute;
 
     background-color: #f3f6ff;
-    background-image: url(../gfx/default.jpg);
+    background-image: url(../../../gfx/default.jpg);
     background-position: center;
     background-size: 100%;
     background-repeat:no-repeat;
@@ -67,7 +67,7 @@
     white-space: nowrap;
     box-sizing: border-box;
 
-    background-image: url('../gfx/polaroidWatermark.png');
+    background-image: url('../../../gfx/polaroidWatermark.png');
     background-position: bottom right;
     background-repeat: no-repeat;
 }

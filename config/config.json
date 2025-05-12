@@ -1,6 +1,7 @@
 {
     "PicturesDir" : "pictures",
     "Theme" : "luna",
+    "DefaultView" : "filmstrip",
     "ThumbDB" : "config/thumbs_db.json",
     "Title" : "PicPile",
     "ThumbnailSize" : [128, 128],

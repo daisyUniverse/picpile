@@ -19,7 +19,7 @@
     height: 25px;  
     left: 12px;
     
-    background-image: url("../gfx/taskgradient.png");
+    background-image: url("../../../gfx/taskgradient.png");
     background-repeat: repeat-y;
     background-position-y: 0x;
     background-position-x: 0px;
@@ -42,7 +42,7 @@
     letter-spacing: .6px;
     color: white;
     text-indent: 33px;
-    background-image: url("../gfx/ptaskgradient.png");
+    background-image: url("../../../gfx/ptaskgradient.png");
     background-repeat: repeat-y;
     background-position-y: 0x;
     background-position-x: 0px;
@@ -72,7 +72,7 @@
     border: 1px solid white;
 
     background-color: #f2f5ff;
-    background-image: url('../gfx/polaroidWatermark.png');
+    background-image: url('../../../gfx/polaroidWatermark.png');
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 60px;
