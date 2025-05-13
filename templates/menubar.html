@@ -1,24 +1,26 @@
-<!-- PicPile Menubar Generator -->
-<!-- Generates a functional menubar from a json structure -->
-<!-- Daisy Universe [D] -->
-<!-- 05 . 12 . 25 -->
+<!-- PicPile Menubar Generator                              -->
+<!-- Generates a functional menubar from a json structure   -->
+<!-- Daisy Universe [D]                                     -->
+<!-- 05 . 12 . 25                                           -->
+
+{# Use Jinja comments in here so we don't spam the built html with looped comments #}
 
 <nav id="Menu">
     
     <ul class="menubar">
-        <!-- Loop though top level key:value pairs to build the list -->
+        {# Loop though top level key:value pairs to build the list #}
         {% for MenuItem, SubMenu in menubar.items() %} 
         
         <li class="menu-item">{{ MenuItem }}
             
             <ul class="submenu">
-                <!-- Loop through Sub Menu items to create 1st level dropdowns -->
+                {# Loop through Sub Menu items to create 1st level dropdowns #}
                 {% for SubMenuItemName, SubMenuItemValue in SubMenu.items() %}
                     
-                    <!-- Special case for seperators -->
+                    {# Special case for seperators #}
                     {% if SubMenuItemName.startswith("Seperator") %} <li class="separator"></li> {% else %}
                         
-                        <!-- Try to check if a Sub Menu has children, if it does, generate more list items -->
+                        {# Try to check if a Sub Menu has children, if it does, generate more list items #}
                         {% if SubMenuItemValue is mapping %}
                             
                                 <li class="has-child">{{ SubMenuItemName }}
@@ -27,7 +29,7 @@
                             {% for ChildSubMenuItemName, ChildSubMenuItemValue in SubMenuItemValue.items()  %}
                                 
                                 {% if ChildSubMenuItemName.startswith("Seperator") %} <li class="separator"></li> {% else %}
-                                <li><a href="{{ ChildSubMenuItemValue or '#' }}">{{ ChildSubMenuItemName }}</a></li>
+                                <a href="{{ ChildSubMenuItemValue or '#' }}"><li>{{ ChildSubMenuItemName }}</li></a>
                                 {% endif %}
 
                             {% endfor %}
@@ -36,7 +38,7 @@
                             
                         {% else %}
                             
-                            <li><a href="{{ SubMenuItemValue or '#' }}">{{ SubMenuItemName }}</a></li>
+                        <a href="{{ SubMenuItemValue or '#' }}"><li>{{ SubMenuItemName }}</li></a>
                             
                         {% endif %}
                     

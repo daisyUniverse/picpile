@@ -1,11 +1,16 @@
-<!-- Main content window -->
+<!-- PicPile Thumbnail List Builder                         -->
+<!-- Use Jinja to create a list of thumbnails with titles   -->
+<!-- Daisy Universe [D]                                     -->
+<!-- 05 . 13 . 25                                           -->
+
+{# Use Jinja comments in here to avoid spamming the built html with looped comments #}
+
 <div id="Content">
 
-    <!-- Big pic preview -->
+    {# Container for the large image preview #}
     <div id="PIC"></div>
 
-    <!-- The widget (Previous photo, next photo, rotate) controls -->
-    <!-- TODO: Make these into functional buttons -->
+    {# Widget for image navigation (Next, Prev, Rotate left, Rotate right) #}
     <div id="WIDGET">
         <img src="assets/gfx/prevPhoto.png">
         <img src="assets/gfx/nextPhoto.png">
@@ -14,25 +19,20 @@
         <img src="assets/gfx/rotateRight.png">
     </div>
 
-    <!-- Thumbnail reel (images placed here will be shown as thumbnails) -->
+    {# Thumbnail reel (images placed here will be shown as thumbnails) #}
     <div id="REEL">
         {% for e in entries %}
             {% if e.is_dir %}
-            <!-- wrap the folder thumbnail in an <a> so navigation is native -->
-            <a href="{{ url_for('index', subpath=e.path) }}"
-                class="thumbnail folder">
-                <!-- absolute URL for the icon so it never resolves to /pictures/... -->
-                <img src="{{ url_for('assets', filename='gfx/FolderThumbnail.png') }}"
-                    width="100" height="100" alt="folder">
-                <p>{{ e.name }}</p>
-            </a>
+                {# if looped item is a subfolder, generate a link to a it #}
+                <a href="{{ url_for('index', subpath=e.path) }}" class="thumbnail folder">
+                    <img src="{{ url_for('assets', filename='gfx/FolderThumbnail.png') }}" width="128" height="128" alt="{{ e.name }}"> <p>{{ e.name }}</p> 
+                </a>
             {% else %}
-            <div class="thumbnail">
-                <img src="{{ url_for('pictures', filename=e.path, Thumbnail='Yes') }}"
-                    width="100" height="100" alt="{{ e.name }}">
-                <p>{{ e.label }}</p>
-            </div>
+                {# if looped item is an image, generate a thumbnail #}
+                <div class="thumbnail">
+                    <img src="{{ url_for('pictures', filename=e.path, Thumbnail='Yes') }}" width="128" height="128" alt="{{ e.name }}"> <p>{{ e.label }}</p>
+                </div>
             {% endif %}
         {% endfor %}
-        </div>
+    </div>
 </div>
