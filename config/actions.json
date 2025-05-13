@@ -1,26 +1,26 @@
 {
     "Picture Tasks" : {
-        "Get pictures from Camera or Scanner"   : [ "" , "" ],
-        "View as a Slide Show"                  : [ "" , "" ],
-        "Order Prints Online"                   : [ "" , "" ],
-        "Print this picture"                    : [ "" , "" ],
-        "Set as Desktop Background"             : [ "" , "" ],
-        "Copy to CD"                            : [ "" , "" ],
-        "Shop for pictures online"              : [ "" , "" ]
+        "Get pictures from Camera or Scanner"   : [ "camera.ico",       "https://daisy.universe.dog" ],
+        "View as a Slide Show"                  : [ "project16.ico",    "https://daisy.universe.dog" ],
+        "Order Prints Online"                   : [ "webphoto16.ico",   "https://daisy.universe.dog" ],
+        "Print this picture"                    : [ "print16.ico",      "https://daisy.universe.dog" ],
+        "Set as Desktop Background"             : [ "wallpaper16.ico",  "https://daisy.universe.dog" ],
+        "Copy to CD"                            : [ "copycd16.ico",     "https://daisy.universe.dog" ],
+        "Shop for pictures online"              : [ "webphoto16.ico",   "https://daisy.universe.dog" ]
     },
     "File and Folder Tasks" : {
-        "Rename this file"              : [ "" , "" ],
-        "Move this file"                : [ "" , "" ],
-        "Copy this file"                : [ "" , "" ],
-        "Publish this file to the Web"  : [ "" , "" ],
-        "E-Mail this file"              : [ "" , "" ],
-        "Shop for pictures online"      : [ "" , "" ]
+        "Rename this file"                      : [ "rename.ico",       "https://daisy.universe.dog" ],
+        "Move this file"                        : [ "move16.ico",       "https://daisy.universe.dog" ],
+        "Copy this file"                        : [ "copy.ico",         "https://daisy.universe.dog" ],
+        "Publish this file to the Web"          : [ "publish16.ico",    "https://daisy.universe.dog" ],
+        "E-Mail this file"                      : [ "delete16.ico",     "https://daisy.universe.dog" ],
+        "Shop for pictures online"              : [ "delete16.ico",     "https://daisy.universe.dog" ]
     },
     "Other Places" : {
-        "Shared Pictures"       : [ "" , "" ],
-        "My Pictures"           : [ "" , "" ],
-        "My Computer"           : [ "" , "" ],
-        "My Network Places"     : [ "" , "" ]
+        "Shared Pictures"                       : [ "picfolder16.ico",  "https://daisy.universe.dog" ],
+        "My Pictures"                           : [ "picfolder16.ico",  "https://daisy.universe.dog" ],
+        "My Computer"                           : [ "folder16.ico",     "https://daisy.universe.dog" ],
+        "My Network Places"                     : [ "folder16.ico",     "https://daisy.universe.dog" ]
     },
     "Details" : {}
 }

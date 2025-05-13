@@ -20,6 +20,10 @@
         line-height: 26px;
         left: 0px;
     }
+
+    #next, #prev {
+        top: 1px;
+    }
 }
 
 /* TODO: Make the widget not be less horrible on portrait images, maybe reduce the opacity and add a colored background? */

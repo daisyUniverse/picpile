@@ -3,52 +3,31 @@
 <!-- ie Details, List, Thumbnails, Filmstrip, etc., -->
 
 <!-- Action Panel -->
-<!-- TODO: Fill these out with actually functional links/actions -->
+
 <div id="LeftPane">
-    <div id="PictureTasks" class="trebuchet">
-        <img class="polaroid" src="assets/gfx/polaroid16.png" width="32" height="32"> Picture Tasks
-        <div id="PTWin">
-            <div id="PaneText">
-                <br>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/camera.ico">Get pictures from camera <span>or scanner</span><br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/project16.ico">View as a slide show<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/webphoto16.ico">Order prints online<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/print16.ico">Print this picture<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/wallpaper16.ico">Set as desktop background<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/copycd16.ico">Copy to CD<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/webphoto16.ico">Shop for pictures online<br><br></a>
+    {% for ActionWindow, ActionWindowItems in actions.items() %}
+        {% if loop.first %}
+        <div id="header_hero"> {{ ActionWindow }}
+            <div id="window_hero">
+                <div id="PaneText">
+                    <br>
+                    {% for TasksName, TaskContent in ActionWindowItems.items() %}
+                    <img src="assets/gfx/{{ TaskContent[0] }}"><a href="{{ TaskContent[1] }}">{{ TasksName }}<br><br></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    <div id="FileTasks" class="trebuchet">
-        File and Folder Tasks
-        <div id="FTWin">
-            <div id="PaneText" class="tahoma-10">
-                <br>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/rename.ico">Rename this file<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/move16.ico">Move this file<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/copy.ico">Copy this file<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/publish16.ico">Publish this file to the Web<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/delete16.ico">E-mail this file<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/delete16.ico">Delete this file<br><br></a>
+        {% else %}
+        <div id="header"> {{ ActionWindow }}
+            <div id="window">
+                <div id="PaneText">
+                    <br>
+                    {% for TasksName, TaskContent in ActionWindowItems.items() %}
+                        <img src="assets/gfx/{{ TaskContent[0] }}"><a href="{{ TaskContent[1] }}">{{ TasksName }}<br><br></a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    <div id="OtherPlaces" class="trebuchet">
-        Other Places
-        <div id="OPWin">
-            <div id="PaneText">
-                <br>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/picfolder16.ico">Shared Pictures<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/picfolder16.ico">My Pictures<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/folder16.ico">My Computer<br><br></a>
-                <a href="https://daisy.universe.dog"><img src="assets/gfx/folder16.ico">My Network Places<br><br></a>
-            </div>
-        </div>
-    </div>
-    <div id="Details" class="trebuchet">
-        Details
-        <div id="Dwin"
-        ></div>
-    </div>
+        {% endif %}
+    {% endfor %}
 </div>

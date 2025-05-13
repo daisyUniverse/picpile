@@ -4,6 +4,7 @@
     "DefaultView" : "filmstrip",
     "ThumbDB" : "config/thumbs_db.json",
     "Menubar" : "config/menubar.json",
+    "Actions" : "config/actions.json",
     "Title" : "PicPile",
     "ThumbnailSize" : [128, 128],
     "ThumbnailPath" : "thumbs",

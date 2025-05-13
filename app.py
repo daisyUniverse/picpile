@@ -22,6 +22,7 @@ BASE_DIR  = os.path.dirname( __file__ )
 config    = config_manager.cfgmgr( os.path.join( BASE_DIR, "config/config.json"  ) )
 thumbdb   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("ThumbDB") ) )
 menubar   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("Menubar") ) )
+actions   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("Actions") ) )
 themedir  = os.path.join("themes", config.get("Theme"))
 
 # @TODO: Currently, I think that setting the pictures folder in the config will only work on relative paths, this needs to be looked at..
@@ -43,6 +44,7 @@ thumbnail_generator.FullCheck(
 def index(subpath):
     title = config.get("Title")
     menubar_json = menubar.load()
+    actions_json = actions.load()
 
     # Allow for custom view selection based on url param, with filmstrip as the configured default
     view = request.args.get('view', default = config.get("DefaultView"), type = str)
@@ -84,7 +86,7 @@ def index(subpath):
             "is_dir": os.path.isdir(os.path.join(folder, name))
         })
 
-    return render_template("index.html", entries=entries, current_url=loc, title=title, folder=titlebar, view=view, menubar=menubar_json)
+    return render_template("index.html", entries=entries, current_url=loc, title=title, folder=titlebar, view=view, menubar=menubar_json, actions=actions_json)
 
 # Serve pictures (or thumbnails) based on url params
 @app.route("/pictures/<path:filename>")

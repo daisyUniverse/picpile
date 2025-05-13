@@ -42,6 +42,14 @@
     bottom: 170px;
     left: 50%;
     transform: translate(-50%);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    background-color: #f3f6ff88;
+}
+
+#next, #prev {
+    line-height: 20px;
 }
 
 /* Filmstrip pane                   */
