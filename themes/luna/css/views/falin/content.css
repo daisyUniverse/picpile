@@ -1,16 +1,17 @@
 #falin {
-    top: -1px;
+    top: 1px;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 3px);
     object-fit: fill;
+    overflow: hidden;
 }
 
 #content {
     position: absolute;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    height: calc(100% - 113px);
     top: 112px;
     left: 0px;
-    background-color: #000;
+    background-color: gold;
 }

@@ -72,7 +72,7 @@
     background-repeat: no-repeat;
 }
 
-/* Thumbnail stuff ( will need to update for when I write a thumbnail generator ) */
+/* Thumbnail stuff */
 .thumbnail {
     display: flex;
     flex-direction: column;

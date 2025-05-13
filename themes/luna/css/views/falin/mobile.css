@@ -1,0 +1,25 @@
+/* Mobile/Portrait junk */
+
+@media only screen and (orientation:portrait) {
+
+    #PIC            { height    : 75%      ; width    : 100%   ; border    : none       ;               }
+    .thumbnail      { height    : 80%      ; width    : 33%    ; bottom    : -17%       ;               }
+    #Content        { width     : 100%     ; overflow : hidden ;                                        }
+    .thumbnail img  { height    : 100%     ; width    : 100%   ;                                        }
+    #WIDGET         { bottom   : 30%    ;                                        }
+    #REEL           { height    : 25%      ;                                                            }
+    #LeftPane       { display   : none     ;                                                            }
+
+    .thumbnail p    {
+        position: absolute;
+        top: -27px;
+        transform: scale(.85);
+        height: 29px;
+        width: 100%;
+        font-size: 33px;
+        line-height: 26px;
+        left: 0px;
+    }
+}
+
+/* TODO: Make the widget not be less horrible on portrait images, maybe reduce the opacity and add a colored background? */

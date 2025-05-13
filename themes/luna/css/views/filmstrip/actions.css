@@ -1,4 +1,7 @@
 /* Actions ( Contains everything in the left sidebar ) */
+
+/* @TODO: Rework this to allow for dynamic content ( should just be undoing the fixed height stuff ) */
+
 #LeftPane {
     
     position: absolute;
@@ -110,6 +113,7 @@
 /* This is a stupid fix for something I couldn't figure out                                             */
 /* Basically word wrap insets behind where it should, so the one line that has wrapped text looked bad  */
 /* @TODO: Fix this                                                                                      */
+
 #PaneText span {
     position: absolute;
     top: 19px;
