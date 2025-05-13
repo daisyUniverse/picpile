@@ -1,128 +1,60 @@
-<!-- prototype new menubar (we will generate something like this) -->
+<!-- PicPile Menubar Generator -->
+<!-- Generates a functional menubar from a json structure -->
+<!-- Daisy Universe [D] -->
+<!-- 05 . 12 . 25 -->
+
 <nav id="Menu">
+    
     <ul class="menubar">
-      <li class="menu-item">
-        File
-        <ul class="submenu">
-          <li>New</li>
-          <li class="separator"></li>
-          <li>Create Shortcut</li>
-          <li>Delete</li>
-          <li>Rename</li>
-          <li>Properties</li>
-          <li class="separator"></li>
-          <li>Close</li>
-        </ul>
-      </li>
-  
-      <li class="menu-item">
-        Edit
-        <ul class="submenu">
-          <li>Undo Delete</li>
-          <li class="separator"></li>
-          <li>Cut</li>
-          <li>Copy</li>
-          <li>Paste</li>
-          <li>Paste Shortcut</li>
-          <li class="separator"></li>
-          <li>Copy to Folder...</li>
-          <li>Move to Folder...</li>
-          <li class="separator"></li>
-          <li>Select All</li>
-          <li>Invert Selection</li>
-        </ul>
-      </li>
-  
-      <li class="menu-item">
-        View
-        <ul class="submenu">
-          <li>Toolbars</li>
-          <li>Status Bar</li>
-          <li>Explorer Bar</li>
-          <li class="separator"></li>
-          <li>Filmstrip</li>
-          <li>Thumbnails</li>
-          <li>Tiles</li>
-          <li>Icons</li>
-          <li>List</li>
-          <li>Details</li>
-          <li class="separator"></li>
-          <li class="has-child">Arrange Icons by
-            <ul class="child-submenu">
-              <li>Name</li>
-              <li>Size</li>
-              <li>Type</li>
-              <li>Modified</li>
-              <li>Picture Taken On</li>
-              <li>Dimensions</li>
-              <li class="separator"></li>
-              <li>Show in Groups</li>
-              <li>Auto Arrange</li>
-              <li>Align to Grid</li>
+        <!-- Loop though top level key:value pairs to build the list -->
+        {% for MenuItem, SubMenu in menubar.items() %} 
+        
+        <li class="menu-item">{{ MenuItem }}
+            
+            <ul class="submenu">
+                <!-- Loop through Sub Menu items to create 1st level dropdowns -->
+                {% for SubMenuItemName, SubMenuItemValue in SubMenu.items() %}
+                    
+                    <!-- Special case for seperators -->
+                    {% if SubMenuItemName.startswith("Seperator") %} <li class="separator"></li> {% else %}
+                        
+                        <!-- Try to check if a Sub Menu has children, if it does, generate more list items -->
+                        {% if SubMenuItemValue is mapping %}
+                            
+                                <li class="has-child">{{ SubMenuItemName }}
+                                <ul class="child-submenu">
+                            
+                            {% for ChildSubMenuItemName, ChildSubMenuItemValue in SubMenuItemValue.items()  %}
+                                
+                                {% if ChildSubMenuItemName.startswith("Seperator") %} <li class="separator"></li> {% else %}
+                                <li><a href="{{ ChildSubMenuItemValue or '#' }}">{{ ChildSubMenuItemName }}</a></li>
+                                {% endif %}
+
+                            {% endfor %}
+                            
+                            </ul>
+                            
+                        {% else %}
+                            
+                            <li><a href="{{ SubMenuItemValue or '#' }}">{{ SubMenuItemName }}</a></li>
+                            
+                        {% endif %}
+                    
+                    {% endif %}
+        
+                {% endfor %}
+            
             </ul>
-          </li>
-          <li class="separator"></li>
-          <li>Choose Details...</li>
-          <li>Customize This Folder...</li>
-          <li class="separator"></li>
-          <li>Go To</li>
-          <li>Refresh</li>
-        </ul>
-      </li>
-  
-      <li class="menu-item">
-        Favorites
-        <ul class="submenu">
-          <li>Add to Favorites...</li>
-          <li>Organize Favorites...</li>
-          <li class="separator"></li>
-          <li class="has-child">Friends Websites
-            <ul class="child-submenu">
-              <li><a href="https://slitherpunk.itch.io/">Autumn Rain</a></li>
-              <li><a href="https://deerz.one/">IDA DEERZ</a></li>
-              <li><a href="https://toastietv.straw.page/">ToastieTV</a></li>
-              <li><a href="https://poss.gay/">DIDELPHIDRAGON</a></li>
-              <li><a href="https://wunkolo.github.io/">Wunk</a></li>
-            </ul>
-          </li>
-          <li class="has-child">Daisies Websites
-            <ul class="child-submenu">
-              <li><a href="https://daisy.universe.dog/">Main Website</a></li>
-              <li><a href="https://tech.universe.dog/">Tech Blog</a></li>
-              <li><a href="https://desna.universe.dog/">Desna Prime</a></li>
-              <li><a href="https://blog.universe.dog/">Personal Blog</a></li>
-              <li><a href="https://chat.universe.dog/">Nebula IRC Chat</a></li>
-              <li><a href="https://bsky.app/profile/daisy.universe.dog">Bluesky</a></li>
-              <li><a href="https://github.com/daisyUniverse">Github</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-  
-      <li class="menu-item">
-        Tools
-        <ul class="submenu">
-          <li>Map Network Drive...</li>
-          <li>Disconnect Network Drive...</li>
-          <li>Synchronize...</li>
-          <li class="separator"></li>
-          <li>Folder Options...</li>
-        </ul>
-      </li>
-  
-      <li class="menu-item">
-        Help
-        <ul class="submenu">
-          <li>Help and Support Center</li>
-          <li class="separator"></li>
-          <li><a href="https://youtu.be/LZgeIReY04c">Is this copy of Windows legal?</a></li>
-          <li><a href="https://github.com/daisyUniverse/picpile">About PicPile</a></li>
-        </ul>
-      </li>
+        
+        </li>
+        
+        {% endfor %}
+    
     </ul>
-  
+
     <div id="WINLOGO">
       <img src="assets/gfx/winLogo.png" alt="Windows Logo">
     </div>
+
   </nav>
   

@@ -18,6 +18,9 @@ class cfgmgr:
         except FileNotFoundError:
             return {}
 
+    def load(self):
+        return self._load_config()
+
     def get(self, key, default=None):
          return self._data.get(key, default)
 
