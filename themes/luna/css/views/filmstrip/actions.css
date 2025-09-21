@@ -1,4 +1,5 @@
 /* Actions ( Contains everything in the left sidebar ) */
+/* since the content of the actions menu is dynamic, this can be kind of fiddly... */
 
 #LeftPane {
     position: absolute;

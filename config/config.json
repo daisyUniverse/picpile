@@ -1,14 +1,17 @@
 {
-    "PicturesDir" : "pictures",
-    "Theme" : "luna",
-    "DefaultView" : "filmstrip",
-    "ThumbDB" : "config/thumbs_db.json",
-    "Menubar" : "config/menubar.json",
-    "Actions" : "config/actions.json",
-    "Title" : "PicPile",
+    "PicturesDir"   : "pictures",
+    "Theme"         : "luna",
+    "DefaultView"   : "filmstrip",
+    "ThumbDB"       : "config/thumbs_db.json",
+    "Menubar"       : "config/menubar.json",
+    "Actions"       : "config/actions.json",
+    "Desktop"       : "config/desktop.json",
+    "Wallpaper"     : "bliss.jpg",
+    "Title"         : "PicPile",
+    "BaseURL"       : "https://picsdev.universe.dog",
     "ThumbnailSize" : [128, 128],
     "ThumbnailPath" : "thumbs",
-    "Debug" : true,
-    "Port" : 420,
-    "Host" : "0.0.0.0"
+    "Debug"         : true,
+    "Port"          : 420,
+    "Host"          : "0.0.0.0"
 }

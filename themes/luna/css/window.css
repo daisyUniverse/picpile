@@ -1,0 +1,76 @@
+/* PicPile Desktop Stylesheet                     */
+/* CSS for Window Management stuff lives in here  */
+/* Daisy Universe [D]                             */
+/* 09 . 11 . 25                                   */
+
+/* bro i can not describe how jank this shit is */
+.window {
+    position: absolute;
+    z-index: 9;
+    left: 10%;
+    top: 5%;
+    height: 80%;
+    width: 80%;
+    resize: both;
+    overflow: hidden;
+    min-height: 138px;
+    min-width: 400px;
+}
+
+.iframe {
+    width: 99%;
+    height: 94%;
+    background-color: white;
+    border: 2px solid blue;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    
+
+}
+
+.handle {
+    position: relative;
+    left: 2px;
+    top: 26px;
+    z-index: 999;
+    height: 26px;
+    width: 99%;
+    background: url("../gfx/titlebar.png");
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    touch-action: none;
+    filter: contrast(.75) saturate(.75);
+
+}
+
+#title {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    line-height: 29px;
+    font-size: 14px;
+    color: white;
+    text-indent: 2px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.WM { 
+    position: absolute;
+    right: -5px;
+    top: 2px;
+    width: 79px; 
+}
+
+.maximized { 
+    resize: none;
+    left: 0px;
+    top: -27px;
+    width: 100.75%;
+    height: 103%;
+    bottom: 0px;
+}
+
+.minimized { display:none; }
+.active { z-index: 10;}
+.active .handle { filter: revert; }
+.active iframe { border: 2px solid blue; box-shadow: 0 0 8px rgba(0,0,0,0.9); }

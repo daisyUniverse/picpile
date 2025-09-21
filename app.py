@@ -23,6 +23,7 @@ config    = config_manager.cfgmgr( os.path.join( BASE_DIR, "config/config.json" 
 thumbdb   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("ThumbDB") ) )
 menubar   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("Menubar") ) )
 actions   = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("Actions") ) )
+desktopConifg = config_manager.cfgmgr( os.path.join( BASE_DIR, config.get("Desktop") ) )
 themedir  = os.path.join("themes", config.get("Theme"))
 
 # @TODO: Currently, I think that setting the pictures folder in the config will only work on relative paths, this needs to be looked at..
@@ -88,6 +89,16 @@ def index(subpath):
 
     return render_template("index.html", entries=entries, current_url=loc, title=title, folder=titlebar, view=view, menubar=menubar_json, actions=actions_json)
 
+# Serve the desktop view.. 
+@app.route("/desktop/")
+def desktop():
+    desktop_json = desktopConifg.load()
+    Title = config.get('Title')
+    wallpaper = config.get('Wallpaper')
+    BaseURL = config.get('BaseURL')
+    return render_template("desktop.html", desktop=desktop_json, wallpaper=wallpaper, Title=Title, BaseURL=BaseURL)
+
+
 # Serve pictures (or thumbnails) based on url params
 @app.route("/pictures/<path:filename>")
 def pictures(filename): 
@@ -96,6 +107,13 @@ def pictures(filename):
         return send_from_directory(config.get("ThumbnailPath"), filename)
     else:
         return send_from_directory(config.get("PicturesDir"), filename)
+
+# Returns whatever is configured as your 'Wallpaper' image when /assets/gfx/default.jpg is requested
+@app.route("/assets/gfx/default.jpg")
+def Wallpaper():
+    picdir = config.get("PicturesDir")
+    wallpaper = config.get("Wallpaper")
+    return send_from_directory(picdir, filename)
 
 # Serve assets from da assets folder
 @app.route("/assets/<path:filename>")

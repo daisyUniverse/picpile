@@ -1,0 +1,21 @@
+{% set PID = range(1, 999) | random %}
+
+<div id="{{ PID }}_window" class="window">
+    <div id="{{ PID }}_handle" class="handle">
+
+        <div id="title">
+            <img class="shadow" src="../assets/gfx/folder16.ico" width="16" height="16"> {{ title }}
+        </div>
+
+        <div id="{{ PID }}_WM" class="WM">
+            <img src="../assets/gfx/minimizeButton.png" id="{{ PID }}_min">
+            <img src="../assets/gfx/maximizeButton.png" id="{{ PID }}_max"> 
+            <img src="../assets/gfx/closeButton.png"" id="{{ PID }}_close">
+        </div>
+
+    </div>
+    <iframe src="{{ targ }}" id="{{ PID }}_iframe" class="iframe">
+    </iframe>
+</div>
+
+<script src="../assets/js/window.js?PID={{ PID }}"></script>

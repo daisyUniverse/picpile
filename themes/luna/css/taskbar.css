@@ -1,0 +1,83 @@
+/* Taskbar styling (this will likely get much more complex as I add functionality) */
+
+#taskbar {
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    height: 29px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    background-image: url(/assets/gfx/taskbar/gradient.png);
+    color: white;
+}
+
+#Tasks {
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    height: 29px;
+    width: 100%;
+    bottom: 0px;
+    left: 100px;
+    color: white;
+}
+
+/* probably will end up being toggleable classes */
+
+#bubbleWrapper {
+    background-image: url('/assets/gfx/taskbar/inactiveBegin.png'), url('/assets/gfx/taskbar/inactiveEnd.png');
+    background-position: bottom left, bottom right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bubble {
+
+    z-index: 11;
+    margin-top: 3px;
+    margin-left: 2px;
+    width: 159px;
+    text-indent: 10px;
+    background-image: url(/assets/gfx/taskbar/inactiveGradient.png);
+    background-repeat: repeat-x;
+}   
+
+.bubble.activebubble {
+    z-index: 11;
+    margin-top: 3px;
+    margin-left: 2px;
+    width: 159px;
+    background-image: url(/assets/gfx/taskbar/activeGradient.png);
+    background-repeat: repeat-x;
+}
+
+.bubble.activebubble #bubbleWrapper {
+    background-image: url('/assets/gfx/taskbar/activeBegin.png'), url('/assets/gfx/taskbar/activeEnd.png');
+    background-position: left, right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bubble img {
+    top: 4px;
+}
+/* all this stuff is really fucked up on safari lol... */
+#widgets {
+    margin-top: -2px;
+    margin-left: auto; 
+}
+
+#widgetExpand {
+    z-index: 11;
+    top: -3px;
+    left: 16px;
+}
+
+#clock {
+    position: absolute;
+    z-index: 12;
+    top: 6px;
+    right: 41px;
+    color: white;
+}

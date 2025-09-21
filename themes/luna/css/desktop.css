@@ -1,0 +1,54 @@
+/* PicPile Desktop Stylesheet                                               */
+/* CSS for the desktop background stuff here...                             */
+/* handles stuff like changable wallpapers and desktop icons                */
+/* Daisy Universe [S]                                                       */
+/* 09 . 11 . 25                                                             */
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-image: url(/assets/gfx/default.jpg);
+    background-size: cover;
+    overflow: hidden;
+}
+
+#DesktopIcons {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+li {
+    position: relative;
+    left: -32px;
+    list-style-type: none;
+    text-align: center;
+    height: 70px;
+    width: 70px;
+    margin: 20px;
+}
+
+li img {
+    position: absolute;
+    height: 64px;
+    top: -10px;
+    left: 3px;
+}
+
+li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    top: 50px;
+}
+
+.highlighted img {
+    background-color: blue;
+}
+
+.highlighted a {
+    border: 2px white;
+    border-style: dotted;
+}

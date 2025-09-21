@@ -29,7 +29,7 @@
                             {% for ChildSubMenuItemName, ChildSubMenuItemValue in SubMenuItemValue.items()  %}
                                 
                                 {% if ChildSubMenuItemName.startswith("Seperator") %} <li class="separator"></li> {% else %}
-                                <a href="{{ ChildSubMenuItemValue or '#' }}"><li>{{ ChildSubMenuItemName }}</li></a>
+                                <a href="javascript:loadFrame('{{ ChildSubMenuItemValue or '#' }}');"><li>{{ ChildSubMenuItemName }}</li></a>
                                 {% endif %}
 
                             {% endfor %}

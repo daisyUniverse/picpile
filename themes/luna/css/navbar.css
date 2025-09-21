@@ -142,3 +142,12 @@
     height: 16px;
     border-radius: 1px;
 }
+
+#addressBox {
+    border: none;
+    width: 96%;
+}
+
+#addressBox:focus {
+    outline: none;
+}

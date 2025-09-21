@@ -1,0 +1,20 @@
+{
+    "My Photos" :   {
+        "name"      : "My Photos",
+        "icon"      : "folders.png",
+        "target"    : "https://picsdev.universe.dog",
+        "type"      : "app"
+    },
+    "Nitripaint" :   {
+        "name"      : "Nitripaint by nue",
+        "icon"      : "favicon.ico",
+        "target"    : "https://nitripaint.com",
+        "type"      : "ie"
+    },
+    "The Flowerbed" :   {
+        "name"      : "The Flowerbed",
+        "icon"      : "daisy.png",
+        "target"    : "https://daisy.universe.dog",
+        "type"      : "ie"
+    }
+}

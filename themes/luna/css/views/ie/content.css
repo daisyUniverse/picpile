@@ -1,0 +1,16 @@
+#ieframe {
+    top: 1px;
+    width: 100%;
+    height: calc(100% - 3px);
+}
+
+#content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    height: calc(100% - 113px);
+    top: 112px;
+    left: 0px;
+    background-color: gold;
+    overflow: hidden;
+}

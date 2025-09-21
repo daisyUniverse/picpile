@@ -1,0 +1,46 @@
+<!-- Picpile Desktop Skeleton                                                        -->
+<!-- We want to call all of our templates from here to allow for better orginization -->
+<!-- Robin Universe [S]                                                              -->
+<!-- 09 . 11 . 25                                                                    -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/desktop.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/window.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/taskbar.css">
+    <link rel="icon" href="../assets/gfx/favicon.ico" type="image/x-icon">
+    <title>{{ Title }}</title>
+</head>
+
+<body>
+
+    <!-- This is where the desktop icons will be built from the content of desktop.json -->
+    <!-- It follows a similar mechanism as the Menubar generation code... -->
+    
+    <div id="DesktopIcons">
+        <ul>
+        {% for Shortcuts in desktop.items() %}
+            {% for Shortcut in Shortcuts %}
+                {% if Shortcut.name %}
+                <li class="Shortcut" ondblclick="openShortcut(this)" onclick="highlight(this)">
+                    <img src="../assets/gfx/{{ Shortcut.icon }}"  ><a class="{{ Shortcut.type }}" href="{{ Shortcut.target }}">{{ Shortcut.name }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div id="Windows">
+
+    </div>
+
+    {% include 'taskbar.html' %}
+
+    <script src="../assets/js/desktop.js"></script>
+    <script src="../assets/js/taskbar.js"></script>
+    <script>
+        spawn("app", "My Pictures", "{{ BaseURL }}")
+    </script>
+</body>
+</html>

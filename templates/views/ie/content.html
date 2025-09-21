@@ -1,0 +1,13 @@
+<div id="content">
+    <iframe src="" id="ieframe">  </iframe>
+</div>
+<script>
+    // Read the target URL from the 'target' URL parameter
+    // (this took far too long to figure out)
+    
+    var scriptUrl = document.location.href;
+    var url = new URL(scriptUrl);
+    var params = new URLSearchParams(url.search);
+    var target = params.get('target'); console.log(target)
+    document.getElementById('ieframe').src = target
+</script>
