@@ -108,17 +108,9 @@ def pictures(filename):
     else:
         return send_from_directory(config.get("PicturesDir"), filename)
 
-# Returns whatever is configured as your 'Wallpaper' image when /assets/gfx/default.jpg is requested
-@app.route("/assets/gfx/default.jpg")
-def Wallpaper():
-    picdir = config.get("PicturesDir")
-    wallpaper = config.get("Wallpaper")
-    return send_from_directory(picdir, filename)
-
 # Serve assets from da assets folder
 @app.route("/assets/<path:filename>")
 def assets(filename): 
-    
     return send_from_directory(themedir, filename)
 
 if __name__ == "__main__": app.run(debug=config.get("Debug"), port=config.get("Port"), host=config.get("Host"))
