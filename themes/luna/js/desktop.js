@@ -51,7 +51,8 @@ function getRandomInt(max) { return Math.floor(Math.random() * max); }
 function spawn(type, title, target, icon="folder16.ico") {
     PID = getRandomInt(100000)
     if (type == "ie") { // Eventually I'll probably have more window types...
-        var encodedTarget = ("https://picsdev.universe.dog/?view=ie&target=" + encodeURI(target));
+        var baseURL = window.location.origin;
+        var encodedTarget = (baseURL + "/?view=ie&target=" + encodeURI(target));
         Windows.insertAdjacentHTML('beforeend', tpl({ PID, title, url:encodedTarget, icon}));
     } else {
         Windows.insertAdjacentHTML('beforeend', tpl({ PID, title, url:target, icon}))
